@@ -1,0 +1,76 @@
+J2 Format 2
+F2. Has de respondre 10 preguntes. Es porta un recompte del temps que trigues en acabar. 
+T1 Test de preguntes autoescola (1 pregunta amb 1 imatge, 4 respostes)
+
+10 preguntas
+
+1 - ¿Cuál es el idioma oficial de Brasil?
+
+    A) Español
+    B) Portugués (Correcta)
+    C) Inglés
+    D) Francés
+
+2 - ¿Quién pintó la Mona Lisa?
+
+    A) Vincent van Gogh
+    B) Leonardo da Vinci (Correcta)
+    C) Pablo Picasso
+    D) Claude Monet
+
+3 - ¿Qué instrumento musical tiene teclas blancas y negras?
+
+    A) Guitarra
+    B) Trompeta
+    C) Piano (Correcta)
+    D) Violín
+
+4 - ¿Qué objeto utilizas para escribir en papel?
+
+    A) Teléfono
+    B) Computadora
+    C) Bolígrafo (Correcta)
+    D) Reloj
+
+5 - ¿Qué tipo de animal es una vaca?
+
+    A) Aves
+    B) Mamífero (Correcta)
+    C) Reptil
+    D) Peces
+
+6 - ¿Cual es el nombre de esta serie?
+
+    A) Breaking Bad (Correcta)
+    B) Rick and Morty
+    C) Arcane
+    D) Suit
+
+7 - ¿Qué planeta es conocido por sus anillos?
+
+    A) Marte
+    B) Saturno (Correcta)
+    C) Urano
+    D) Neptuno
+
+8 - ¿Cuál es el nombre del famoso superhéroe de Marvel que usa un traje rojo y azul y puede lanzar telarañas?
+
+    A) Iron Man
+    B) Capitán América
+    C) Thor
+    D) Spider-Man (Correcta)
+
+9 - ¿Qué tipo de comida es la pasta?
+
+    A) Italiana (Correcta)
+    B) Mexicana
+    C) China
+    D) India
+
+10 - ¿Cuál es el nombre del famoso ratón de Disney?
+
+    A) Mickey Mouse (Correcta)
+    B) Jerry Mouse
+    C) Stuart Little
+    D) Speedy Gonzales
+
