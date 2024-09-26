@@ -6,9 +6,10 @@ const cors = require('cors');
 const port = 3000;
 
 app.use(cors());
+app.use(express.json())
 
 app.get('/start', (req, res) => {
-  fs.readFile('preguntes.json', 'utf8', (err, data) => {
+  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
     if (err) {
       // Si hay un error al leer el archivo, envía una respuesta de error
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
@@ -21,13 +22,13 @@ app.get('/start', (req, res) => {
 
 app.post('/over', (req, res) => {
   //const newObj = aleatorio(obj);
-  const pathDir = __dirname + "\\Jocs";
+  const pathMainDir = __dirname + "\\Jocs";
   
   const fechaActual = new Date();
   const dia = fechaActual.getDate();
   const mes = fechaActual.getMonth() + 1;
   const year = fechaActual.getFullYear(); 
-  const pathDirective = path.join(pathDir, `${dia}-${mes}-${year}`);
+  const pathDirective = path.join(pathMainDir, `${dia}-${mes}-${year}`);
 
   if(!fs.existsSync(pathDirective)) {
     fs.mkdir(pathDirective, (err) => {
@@ -41,6 +42,21 @@ app.post('/over', (req, res) => {
   //   if(err) return res.status(500).json({mesaje: 'Error al crear archivo'})
   //   res.status(200).json({mensaje: 'Archivo creado'})
   // });
+})
+
+app.delete('/eliminar', (req, res) => {
+  const newQuestions = req.body.preguntes;
+
+  const newJson = {preguntes: newQuestions}
+
+  const jsonString = JSON.stringify(newJson, null, 2);
+
+  fs.writeFile("preguntes2.json", jsonString, (err) => {
+    if(err) console.error("Error", err);
+    else console.log("Archivo sobrescrito");
+  })
+
+  res.send("Eliminado")
 })
 
 app.listen(port, () => {

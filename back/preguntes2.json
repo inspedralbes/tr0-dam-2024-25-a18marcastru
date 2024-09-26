@@ -1,0 +1,84 @@
+{
+  "preguntes": [
+    {
+      "pregunta": "¿Quién pintó la Mona Lisa?",
+      "resposta_correcta": "Leonardo da Vinci",
+      "respostes_incorrectes": [
+        "Vincent van Gogh",
+        "Pablo Picasso",
+        "Claude Monet"
+      ],
+      "imatge": "https://exemple.com/mona_lisa.jpg"
+    },
+    {
+      "pregunta": "¿Qué objeto utilizas para escribir en papel?",
+      "resposta_correcta": "Bolígrafo",
+      "respostes_incorrectes": [
+        "Teléfono",
+        "Computadora",
+        "Reloj"
+      ],
+      "imatge": "https://exemple.com/boligrafo.jpg"
+    },
+    {
+      "pregunta": "¿Qué tipo de animal es una vaca?",
+      "resposta_correcta": "Mamífero",
+      "respostes_incorrectes": [
+        "Aves",
+        "Reptil",
+        "Peces"
+      ],
+      "imatge": "https://exemple.com/vaca.jpg"
+    },
+    {
+      "pregunta": "¿Cuál es el nombre de esta serie?",
+      "resposta_correcta": "Breaking Bad",
+      "respostes_incorrectes": [
+        "Rick and Morty",
+        "Arcane",
+        "Suit"
+      ],
+      "imatge": "https://exemple.com/breaking_bad.jpg"
+    },
+    {
+      "pregunta": "¿Qué planeta es conocido por sus anillos?",
+      "resposta_correcta": "Saturno",
+      "respostes_incorrectes": [
+        "Marte",
+        "Urano",
+        "Neptuno"
+      ],
+      "imatge": "https://exemple.com/saturno.jpg"
+    },
+    {
+      "pregunta": "¿Cuál es el nombre del famoso superhéroe de Marvel que usa un traje rojo y azul y puede lanzar telarañas?",
+      "resposta_correcta": "Spider-Man",
+      "respostes_incorrectes": [
+        "Iron Man",
+        "Capitán América",
+        "Thor"
+      ],
+      "imatge": "https://exemple.com/spider_man.jpg"
+    },
+    {
+      "pregunta": "¿Qué tipo de comida es la pasta?",
+      "resposta_correcta": "Italiana",
+      "respostes_incorrectes": [
+        "Mexicana",
+        "China",
+        "India"
+      ],
+      "imatge": "https://exemple.com/pasta.jpg"
+    },
+    {
+      "pregunta": "¿Cuál es el nombre del famoso ratón de Disney?",
+      "resposta_correcta": "Mickey Mouse",
+      "respostes_incorrectes": [
+        "Jerry Mouse",
+        "Stuart Little",
+        "Speedy Gonzales"
+      ],
+      "imatge": "https://exemple.com/mickey_mouse.jpg"
+    }
+  ]
+}
