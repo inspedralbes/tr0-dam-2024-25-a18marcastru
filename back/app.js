@@ -8,15 +8,17 @@ const port = 3000;
 app.use(cors());
 app.use(express.json())
 
+let allQuestions;
+
 app.get('/start', (req, res) => {
   fs.readFile('preguntes2.json', 'utf8', (err, data) => {
     if (err) {
-      // Si hay un error al leer el archivo, envía una respuesta de error
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
 
-    // Convierte el contenido del archivo JSON a objeto JavaScript
-    res.json(JSON.parse(data));
+    allQuestions = JSON.parse(data)
+
+    res.json(allQuestions);
   });
 });
 
@@ -45,19 +47,50 @@ app.post('/over', (req, res) => {
 })
 
 app.delete('/eliminar', (req, res) => {
-  const newQuestions = req.body.preguntes;
+  const deleteQuestion = req.body.pregunta;
 
-  const newJson = {preguntes: newQuestions}
+  allQuestions.preguntes = allQuestions.preguntes.filter(pregunta => 
+    pregunta.pregunta !== deleteQuestion
+  );
 
-  const jsonString = JSON.stringify(newJson, null, 2);
+  const jsonString = JSON.stringify(allQuestions, null, 2);
 
   fs.writeFile("preguntes2.json", jsonString, (err) => {
-    if(err) console.error("Error", err);
+    if (err) console.error("Error", err);
     else console.log("Archivo sobrescrito");
-  })
+  });
+  res.json({message: "Eliminado"});
+});
 
-  res.send("Eliminado")
-})
+app.post('/afegir', (req, res) => {
+  const newQuestion = req.body;
+
+  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).json({ message: 'Error al leer el archivo JSON' });
+    }
+
+    let allQuestions;
+
+    allQuestions = JSON.parse(data)
+
+    allQuestions.preguntes.push(newQuestion);
+
+    const jsonString = JSON.stringify(allQuestions, null, 2);
+
+    fs.writeFile('preguntes2.json', jsonString, (writeErr) => {
+      if (writeErr) {
+        console.error("Error al escribir el archivo:", writeErr);
+      } else {
+        res.json({message: "Nueva pregunta añadida exitosamente."});
+      }
+    });
+  });
+});
+
+// app.put('/actualizar', (res, req) => {
+  
+// })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
