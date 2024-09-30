@@ -70,6 +70,8 @@ app.post('/afegir', (req, res) => {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
 
+    console.log(newQuestion)
+
     let allQuestions;
 
     allQuestions = JSON.parse(data)
@@ -88,9 +90,51 @@ app.post('/afegir', (req, res) => {
   });
 });
 
-// app.put('/actualizar', (res, req) => {
-  
-// })
+app.put('/actualizar/:pregunta', (req, res) => {
+  const updateQuestion = req.params.pregunta;
+
+  const updatedQuestionData = req.body;
+
+  // Leemos el archivo JSON
+  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).json({ message: 'Error al leer el archivo JSON' });
+    }
+
+    let allQuestions;
+
+    // Parseamos el archivo JSON a objeto JavaScript
+    try {
+      allQuestions = JSON.parse(data);
+    } catch (parseError) {
+      return res.status(500).json({ message: 'Error al parsear el archivo JSON' });
+    }
+
+    // Buscamos el índice de la pregunta que queremos actualizar
+    const index = allQuestions.preguntes.findIndex(p => p.pregunta === updateQuestion);
+
+    if (index !== -1) {
+      // Actualizamos la pregunta con los nuevos datos
+      allQuestions.preguntes[index] = updatedQuestionData;
+
+      // Convertimos de vuelta a JSON para escribir en el archivo
+      const jsonString = JSON.stringify(allQuestions, null, 2);
+
+      // Escribimos el archivo actualizado
+      fs.writeFile('preguntes2.json', jsonString, (writeErr) => {
+        if (writeErr) {
+          console.error("Error al escribir el archivo:", writeErr);
+          return res.status(500).json({ message: 'Error al escribir el archivo JSON' });
+        } else {
+          res.json({ message: "Pregunta actualizada exitosamente." });
+        }
+      });
+    } else {
+      // Si la pregunta no se encuentra, enviamos un error
+      res.status(404).json({ message: 'Pregunta no encontrada' });
+    }
+  });
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
