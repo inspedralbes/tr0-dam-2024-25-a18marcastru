@@ -90,12 +90,9 @@ app.post('/afegir', (req, res) => {
   });
 });
 
-app.put('/actualizar/:pregunta', (req, res) => {
-  const updateQuestion = req.params.pregunta;
-
+app.put('/actualizar', (req, res) => {
   const updatedQuestionData = req.body;
 
-  // Leemos el archivo JSON
   fs.readFile('preguntes2.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
@@ -103,24 +100,30 @@ app.put('/actualizar/:pregunta', (req, res) => {
 
     let allQuestions;
 
-    // Parseamos el archivo JSON a objeto JavaScript
     try {
       allQuestions = JSON.parse(data);
     } catch (parseError) {
       return res.status(500).json({ message: 'Error al parsear el archivo JSON' });
     }
 
-    // Buscamos el índice de la pregunta que queremos actualizar
-    const index = allQuestions.preguntes.findIndex(p => p.pregunta === updateQuestion);
+    console.log(updatedQuestionData.pregunta_original)
+
+    const index = allQuestions.preguntes.findIndex(p => p.pregunta === updatedQuestionData.pregunta_original);
+
+    console.log(index)
 
     if (index !== -1) {
-      // Actualizamos la pregunta con los nuevos datos
-      allQuestions.preguntes[index] = updatedQuestionData;
+      const newUpdatedQuestionData = {
+        pregunta: updatedQuestionData.pregunta,
+        resposta_correcta: updatedQuestionData.resposta_correcta,
+        respostes_incorrectes: updatedQuestionData.respostes_incorrectes,
+        imatge: ""
+      }
 
-      // Convertimos de vuelta a JSON para escribir en el archivo
+      allQuestions.preguntes[index] = newUpdatedQuestionData;
+
       const jsonString = JSON.stringify(allQuestions, null, 2);
 
-      // Escribimos el archivo actualizado
       fs.writeFile('preguntes2.json', jsonString, (writeErr) => {
         if (writeErr) {
           console.error("Error al escribir el archivo:", writeErr);

@@ -1,6 +1,26 @@
 {
   "preguntes": [
     {
+      "pregunta": "¿Cuál es la velocidad máxima permitida en autopistas para en España?",
+      "resposta_correcta": "420 km/h",
+      "respostes_incorrectes": [
+        "100 km/h",
+        "130 km/h",
+        "90 km/h"
+      ],
+      "imatge": "http://localhost:3000/Imatges/Brasil.png"
+    },
+    {
+      "pregunta": "¿Qué significa una señal de tráfico con un círculo rojo y un número dentro!!!!!!!!!!!!?",
+      "resposta_correcta": "Límite de velocidad",
+      "respostes_incorrectes": [
+        "Prohibición de adelantamiento",
+        "Fin de restricción",
+        "Obligación de detenerse"
+      ],
+      "imatge": ""
+    },
+    {
       "pregunta": "¿Qué color tiene la señal de ceda el paso?",
       "resposta_correcta": "Blanco con borde rojo",
       "respostes_incorrectes": [
