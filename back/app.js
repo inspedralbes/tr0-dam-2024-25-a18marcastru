@@ -10,7 +10,7 @@ app.use(express.json())
 
 let allQuestions;
 
-app.get('/start', (req, res) => {
+app.get('/', (req, res) => {
   fs.readFile('questions.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
@@ -19,6 +19,20 @@ app.get('/start', (req, res) => {
     allQuestions = JSON.parse(data)
 
     res.json(allQuestions);
+  });
+});
+
+app.get('/start', (req, res) => {
+  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).json({ message: 'Error al leer el archivo JSON' });
+    }
+    
+    allQuestions = JSON.parse(data)
+
+    const result = random(allQuestions)
+
+    res.json(result);
   });
 });
 
@@ -165,31 +179,25 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-// function random(jsonData) {
+function random(jsonData) {
 
-//   // let numQ = [];
-//   questions2 = jsonData.preguntes;
+  let numQ = [];
+  const questions = jsonData.preguntes;
 
-//   const newJson = questions2.map(q => ({
-//     pregunta: q.pregunta,
-//     respostes: mezclarRespuestas(q.resposta_correcta, q.respostes_incorrectes),
-//     imatge: q.imatge
-//   }));
+  for(let i = 0;i < questions.length;i++) {
+    numQ[i] = questions[Math.floor(Math.random() * questions.length)];
+  }
 
-//   // for(let i = 0;i < questions2.length;i++) {
-//   //     numQ[i] = questions[Math.floor(Math.random() * questions.length)];
-//   // }
+  const newJson = numQ.map(q => ({
+    pregunta: q.pregunta,
+    respostes: mezclarRespuestas(q.resposta_correcta, q.respostes_incorrectes),
+    imatge: q.imatge
+  }));
 
-//   // const newJson = numQ.map(q => ({
-//   //     pregunta: q.pregunta,
-//   //     respostes: mezclarRespuestas(q.resposta_correcta, q.respostes_incorrectes),
-//   //     imatge: q.imatge
-//   // }));
+  return newJson;
+}
 
-//   return newJson;
-// }
-
-// function mezclarRespuestas(resposta_correcta, respostes_incorrectes) {
-//   const respuestas = [resposta_correcta, ...respostes_incorrectes];
-//   return respuestas.sort(() => Math.random() - 0.5); // Mezcla aleatoria de respuestas
-// }
+function mezclarRespuestas(resposta_correcta, respostes_incorrectes) {
+  const respuestas = [resposta_correcta, ...respostes_incorrectes];
+  return respuestas.sort(() => Math.random() - 0.5); // Mezcla aleatoria de respuestas
+}
