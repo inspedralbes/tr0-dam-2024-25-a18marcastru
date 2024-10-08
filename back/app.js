@@ -11,7 +11,7 @@ app.use(express.json())
 let allQuestions;
 
 app.get('/start', (req, res) => {
-  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+  fs.readFile('questions.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
@@ -23,8 +23,9 @@ app.get('/start', (req, res) => {
 });
 
 app.post('/over', (req, res) => {
-  //const newObj = aleatorio(obj);
+  console.log(req.body)
   const pathMainDir = __dirname + "\\Jocs";
+  const pathRespostes_usuaris = path.join(pathMainDir, "Respostes_usuarisOriginal.json")
   
   const fechaActual = new Date();
   const dia = fechaActual.getDate();
@@ -34,16 +35,37 @@ app.post('/over', (req, res) => {
 
   if(!fs.existsSync(pathDirective)) {
     fs.mkdir(pathDirective, (err) => {
-      if(err) return res.send("Error");
-      else return res.send("Creada");
+      if(err) console.log("Error");
+      else console.log("Creada");
     });
   }
-  else res.send("Ya existe");
+  else console.log("Ya existe");
 
-  // fs.writeFile(pathFile, obj, (err) => {
-  //   if(err) return res.status(500).json({mesaje: 'Error al crear archivo'})
-  //   res.status(200).json({mensaje: 'Archivo creado'})
-  // });
+  const filePath = path.join(pathDirective, "Respostes_usuaris.json")
+
+  if(!fs.existsSync(filePath)) {
+    const jsonData = JSON.parse(fs.readFileSync(pathRespostes_usuaris));
+
+    // Buscar la pregunta y actualizar el contador de la respuesta del usuario
+    const questionIndex = jsonData.questions.findIndex(q => q.question === question);
+    if (questionIndex !== -1) {
+      const answerIndex = jsonData.questions[questionIndex].answer_users.findIndex(a => a.answer === userAnswer);
+      if (answerIndex !== -1) {
+        jsonData.questions[questionIndex].answer_users[answerIndex].counter += 1; // Incrementar contador
+      }
+    }
+
+    fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2))
+    console.log("Actualizado")
+  }
+  else {
+    
+  }
+
+  fs.writeFile(pathFile, obj, (err) => {
+    if(err) return res.status(500).json({mesaje: 'Error al crear archivo'})
+    res.status(200).json({mensaje: 'Archivo creado'})
+  });
 })
 
 app.delete('/eliminar', (req, res) => {

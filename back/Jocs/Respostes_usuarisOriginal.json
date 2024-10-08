@@ -1,0 +1,234 @@
+{
+    "questions": [
+        {
+            "question": "¿Cuál es la capital de Francia?",
+            "answer": "París",
+            "image": "https://www.tripsavvy.com/thmb/GKyG-p3qSCWFgl9d-YBF6sLRIrY%3D/5760x3840/filters:fill(auto%2C1)/GettyImages-559699279-58f4f3cb5f9b582c4dfb1b29.jpg",
+            "answer_users": [
+                {
+                    "answer": "Berlín",
+                    "counter": 0
+                },
+                {
+                    "answer": "París",
+                    "counter": 0
+                },
+                {
+                    "answer": "Lisboa",
+                    "counter": 0
+                },
+                {
+                    "answer": "Madrid",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Cuál es el océano más grande?",
+            "answer": "Pacífico",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Pacific_Ocean.jpg",
+            "answer_users": [
+                {
+                    "answer": "Atlántico",
+                    "counter": 0
+                },
+                {
+                    "answer": "Índico",
+                    "counter": 0
+                },
+                {
+                    "answer": "Ártico",
+                    "counter": 0
+                },
+                {
+                    "answer": "Pacífico",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Cuál es el continente más grande?",
+            "answer": "Asia",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Africa_map.svg",
+            "answer_users": [
+                {
+                    "answer": "África",
+                    "counter": 0
+                },
+                {
+                    "answer": "Asia",
+                    "counter": 0
+                },
+                {
+                    "answer": "Europa",
+                    "counter": 0
+                },
+                {
+                    "answer": "América",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Cuál es la montaña más alta del mundo?",
+            "answer": "Everest",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Mount_Everest.jpg",
+            "answer_users": [
+                {
+                    "answer": "K2",
+                    "counter": 0
+                },
+                {
+                    "answer": "Kangchenjunga",
+                    "counter": 0
+                },
+                {
+                    "answer": "Everest",
+                    "counter": 0
+                },
+                {
+                    "answer": "Lhotse",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Cuál es el país más poblado del mundo?",
+            "answer": "China",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/0/00/China_flag.jpg",
+            "answer_users": [
+                {
+                    "answer": "India",
+                    "counter": 0
+                },
+                {
+                    "answer": "Estados Unidos",
+                    "counter": 0
+                },
+                {
+                    "answer": "China",
+                    "counter": 0
+                },
+                {
+                    "answer": "Indonesia",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Qué planeta es conocido como el planeta rojo?",
+            "answer": "Marte",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Mars_scientific_map.jpg",
+            "answer_users": [
+                {
+                    "answer": "Venus",
+                    "counter": 0
+                },
+                {
+                    "answer": "Marte",
+                    "counter": 0
+                },
+                {
+                    "answer": "Júpiter",
+                    "counter": 0
+                },
+                {
+                    "answer": "Mercurio",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Cuál es el río más largo del mundo?",
+            "answer": "Nilo",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Nile_River_Mapping.jpg",
+            "answer_users": [
+                {
+                    "answer": "Nilo",
+                    "counter": 0
+                },
+                {
+                    "answer": "Amazonas",
+                    "counter": 0
+                },
+                {
+                    "answer": "Yangtsé",
+                    "counter": 0
+                },
+                {
+                    "answer": "Misisipi",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Cuál es el idioma más hablado del mundo?",
+            "answer": "Mandarín",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Chinese_language.png",
+            "answer_users": [
+                {
+                    "answer": "Inglés",
+                    "counter": 0
+                },
+                {
+                    "answer": "Mandarín",
+                    "counter": 0
+                },
+                {
+                    "answer": "Español",
+                    "counter": 0
+                },
+                {
+                    "answer": "Hindi",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Cuál es el animal terrestre más rápido?",
+            "answer": "Guepardo",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Cheetah_Mobile.jpg",
+            "answer_users": [
+                {
+                    "answer": "León",
+                    "counter": 0
+                },
+                {
+                    "answer": "Cheetah",
+                    "counter": 0
+                },
+                {
+                    "answer": "Tigre",
+                    "counter": 0
+                },
+                {
+                    "answer": "Guepardo",
+                    "counter": 0
+                }
+            ]
+        },
+        {
+            "question": "¿Cuál es la capital de Japón?",
+            "answer": "Tokio",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Tokyo_Montage.jpg",
+            "answer_users": [
+                {
+                    "answer": "Seúl",
+                    "counter": 0
+                },
+                {
+                    "answer": "Pekín",
+                    "counter": 0
+                },
+                {
+                    "answer": "Tokio",
+                    "counter": 0
+                },
+                {
+                    "answer": "Bangkok",
+                    "counter": 0
+                }
+            ]
+        }
+    ]
+}
