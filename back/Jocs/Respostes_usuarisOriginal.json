@@ -1,232 +1,232 @@
 {
-    "questions": [
+    "preguntes": [
         {
-            "question": "¿Cuál es la capital de Francia?",
-            "answer": "París",
-            "image": "https://www.tripsavvy.com/thmb/GKyG-p3qSCWFgl9d-YBF6sLRIrY%3D/5760x3840/filters:fill(auto%2C1)/GettyImages-559699279-58f4f3cb5f9b582c4dfb1b29.jpg",
-            "answer_users": [
+            "pregunta": "¿Cuál es la velocidad máxima permitida en autopistas para turismos en España?",
+            "resposta_correcta": "120 km/h",
+            "imatge": "https://exemple.com/autopista.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "Berlín",
-                    "counter": 0
+                    "resposta": "100 km/h",
+                    "contador": 0
                 },
                 {
-                    "answer": "París",
-                    "counter": 0
+                    "resposta": "120 km/h",
+                    "contador": 0
                 },
                 {
-                    "answer": "Lisboa",
-                    "counter": 0
+                    "resposta": "130 km/h",
+                    "contador": 0
                 },
                 {
-                    "answer": "Madrid",
-                    "counter": 0
+                    "resposta": "90 km/h",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Cuál es el océano más grande?",
-            "answer": "Pacífico",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Pacific_Ocean.jpg",
-            "answer_users": [
+            "pregunta": "¿Qué significa una señal de tráfico con un círculo rojo y un número dentro?",
+            "resposta_correcta": "Límite de velocidad",
+            "imatge": "https://exemple.com/limite_velocidad.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "Atlántico",
-                    "counter": 0
+                    "resposta": "Prohibición de adelantamiento",
+                    "contador": 0
                 },
                 {
-                    "answer": "Índico",
-                    "counter": 0
+                    "resposta": "Límite de velocidad",
+                    "contador": 0
                 },
                 {
-                    "answer": "Ártico",
-                    "counter": 0
+                    "resposta": "Fin de restricción",
+                    "contador": 0
                 },
                 {
-                    "answer": "Pacífico",
-                    "counter": 0
+                    "resposta": "Obligación de detenerse",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Cuál es el continente más grande?",
-            "answer": "Asia",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Africa_map.svg",
-            "answer_users": [
+            "pregunta": "¿Qué color tiene la señal de ceda el paso?",
+            "resposta_correcta": "Blanco con borde rojo",
+            "imatge": "https://exemple.com/ceda_el_paso.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "África",
-                    "counter": 0
+                    "resposta": "Azul",
+                    "contador": 0
                 },
                 {
-                    "answer": "Asia",
-                    "counter": 0
+                    "resposta": "Blanco con borde rojo",
+                    "contador": 0
                 },
                 {
-                    "answer": "Europa",
-                    "counter": 0
+                    "resposta": "Amarillo",
+                    "contador": 0
                 },
                 {
-                    "answer": "América",
-                    "counter": 0
+                    "resposta": "Verde",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Cuál es la montaña más alta del mundo?",
-            "answer": "Everest",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Mount_Everest.jpg",
-            "answer_users": [
+            "pregunta": "¿En qué situaciones está permitido adelantar por la derecha?",
+            "resposta_correcta": "En vías con más de un carril por sentido y tráfico denso",
+            "imatge": "https://exemple.com/adelantar.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "K2",
-                    "counter": 0
+                    "resposta": "Nunca",
+                    "contador": 0
                 },
                 {
-                    "answer": "Kangchenjunga",
-                    "counter": 0
+                    "resposta": "En vías con más de un carril por sentido y tráfico denso",
+                    "contador": 0
                 },
                 {
-                    "answer": "Everest",
-                    "counter": 0
+                    "resposta": "En autopistas",
+                    "contador": 0
                 },
                 {
-                    "answer": "Lhotse",
-                    "counter": 0
+                    "resposta": "En zonas urbanas",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Cuál es el país más poblado del mundo?",
-            "answer": "China",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/0/00/China_flag.jpg",
-            "answer_users": [
+            "pregunta": "¿Cómo se debe estacionar en una pendiente descendente?",
+            "resposta_correcta": "Girar las ruedas hacia la acera y poner el freno de mano",
+            "imatge": "https://exemple.com/pendiente.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "India",
-                    "counter": 0
+                    "resposta": "Dejar el coche en punto muerto",
+                    "contador": 0
                 },
                 {
-                    "answer": "Estados Unidos",
-                    "counter": 0
+                    "resposta": "Girar las ruedas hacia la acera y poner el freno de mano",
+                    "contador": 0
                 },
                 {
-                    "answer": "China",
-                    "counter": 0
+                    "resposta": "Girar las ruedas hacia la calzada",
+                    "contador": 0
                 },
                 {
-                    "answer": "Indonesia",
-                    "counter": 0
+                    "resposta": "Apagar el motor y dejar las ruedas rectas",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Qué planeta es conocido como el planeta rojo?",
-            "answer": "Marte",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Mars_scientific_map.jpg",
-            "answer_users": [
+            "pregunta": "¿Qué luz es obligatoria usar al circular en un túnel?",
+            "resposta_correcta": "Luz de cruce",
+            "imatge": "https://exemple.com/tunel.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "Venus",
-                    "counter": 0
+                    "resposta": "Luz de carretera",
+                    "contador": 0
                 },
                 {
-                    "answer": "Marte",
-                    "counter": 0
+                    "resposta": "Luz de cruce",
+                    "contador": 0
                 },
                 {
-                    "answer": "Júpiter",
-                    "counter": 0
+                    "resposta": "Luz antiniebla",
+                    "contador": 0
                 },
                 {
-                    "answer": "Mercurio",
-                    "counter": 0
+                    "resposta": "Luz de posición",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Cuál es el río más largo del mundo?",
-            "answer": "Nilo",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Nile_River_Mapping.jpg",
-            "answer_users": [
+            "pregunta": "¿Qué significa una línea continua en la calzada?",
+            "resposta_correcta": "Prohibido adelantar o cambiar de carril",
+            "imatge": "https://exemple.com/linea_continua.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "Nilo",
-                    "counter": 0
+                    "resposta": "Es una zona de estacionamiento",
+                    "contador": 0
                 },
                 {
-                    "answer": "Amazonas",
-                    "counter": 0
+                    "resposta": "Prohibido adelantar o cambiar de carril",
+                    "contador": 0
                 },
                 {
-                    "answer": "Yangtsé",
-                    "counter": 0
+                    "resposta": "Permite adelantar",
+                    "contador": 0
                 },
                 {
-                    "answer": "Misisipi",
-                    "counter": 0
+                    "resposta": "Indica la mitad de la carretera",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Cuál es el idioma más hablado del mundo?",
-            "answer": "Mandarín",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Chinese_language.png",
-            "answer_users": [
+            "pregunta": "¿Qué distancia de seguridad se debe mantener con el vehículo de delante?",
+            "resposta_correcta": "La que permita detener el vehículo sin colisionar",
+            "imatge": "https://exemple.com/distancia_seguridad.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "Inglés",
-                    "counter": 0
+                    "resposta": "10 metros",
+                    "contador": 0
                 },
                 {
-                    "answer": "Mandarín",
-                    "counter": 0
+                    "resposta": "La que permita detener el vehículo sin colisionar",
+                    "contador": 0
                 },
                 {
-                    "answer": "Español",
-                    "counter": 0
+                    "resposta": "100 metros",
+                    "contador": 0
                 },
                 {
-                    "answer": "Hindi",
-                    "counter": 0
+                    "resposta": "Depende de la velocidad máxima permitida",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Cuál es el animal terrestre más rápido?",
-            "answer": "Guepardo",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Cheetah_Mobile.jpg",
-            "answer_users": [
+            "pregunta": "¿Qué documento es obligatorio llevar en el vehículo?",
+            "resposta_correcta": "Permiso de circulación",
+            "imatge": "https://exemple.com/permiso_circulacion.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "León",
-                    "counter": 0
+                    "resposta": "Carnet de la ITV",
+                    "contador": 0
                 },
                 {
-                    "answer": "Cheetah",
-                    "counter": 0
+                    "resposta": "Permiso de circulación",
+                    "contador": 0
                 },
                 {
-                    "answer": "Tigre",
-                    "counter": 0
+                    "resposta": "Certificado médico",
+                    "contador": 0
                 },
                 {
-                    "answer": "Guepardo",
-                    "counter": 0
+                    "resposta": "Recibo del seguro",
+                    "contador": 0
                 }
             ]
         },
         {
-            "question": "¿Cuál es la capital de Japón?",
-            "answer": "Tokio",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Tokyo_Montage.jpg",
-            "answer_users": [
+            "pregunta": "¿Qué debe hacer si ve una señal de STOP?",
+            "resposta_correcta": "Detenerse completamente",
+            "imatge": "https://exemple.com/stop.jpg",
+            "resposta_usuaris": [
                 {
-                    "answer": "Seúl",
-                    "counter": 0
+                    "resposta": "Reducir la velocidad",
+                    "contador": 0
                 },
                 {
-                    "answer": "Pekín",
-                    "counter": 0
+                    "resposta": "Detenerse completamente",
+                    "contador": 0
                 },
                 {
-                    "answer": "Tokio",
-                    "counter": 0
+                    "resposta": "Acelerar",
+                    "contador": 0
                 },
                 {
-                    "answer": "Bangkok",
-                    "counter": 0
+                    "resposta": "Girar a la derecha",
+                    "contador": 0
                 }
             ]
         }

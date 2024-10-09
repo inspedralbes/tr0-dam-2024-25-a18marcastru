@@ -1,4 +1,5 @@
-[
+{
+    "preguntes": [
         {
             "pregunta": "¿Cuál es la velocidad máxima permitida en autopistas para turismos en España?",
             "resposta_correcta": "120 km/h",
@@ -59,4 +60,5 @@
             "respostes_incorrectes": ["Reducir la velocidad", "Acelerar", "Girar a la derecha"],
             "imatge": "https://exemple.com/stop.jpg"
         }
-]
+    ]
+}

@@ -11,7 +11,7 @@ app.use(express.json())
 let allQuestions;
 
 app.get('/', (req, res) => {
-  fs.readFile('questions.json', 'utf8', (err, data) => {
+  fs.readFile('preguntes.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
@@ -21,6 +21,31 @@ app.get('/', (req, res) => {
     res.json(allQuestions);
   });
 });
+
+function random(jsonData) {
+
+  let numQ = [];
+  const preguntes = jsonData.preguntes;
+
+  while(preguntes.length > 0) {
+    const randomIndex = Math.floor(Math.random() * preguntes.length);
+    numQ.push(preguntes[randomIndex]);
+    preguntes.splice(randomIndex, 1);
+  }
+
+  const newJson = numQ.map(q => ({
+    pregunta: q.pregunta,
+    respostes: mezclarRespuestas(q.resposta_correcta, q.respostes_incorrectes),
+    imatge: q.imatge
+  }));
+
+  return newJson;
+}
+
+function mezclarRespuestas(resposta_correcta, respostes_incorrectes) {
+  const respuestas = [resposta_correcta, ...respostes_incorrectes];
+  return respuestas.sort(() => Math.random() - 0.5); // Mezcla aleatoria de respuestas
+}
 
 app.get('/start', (req, res) => {
   fs.readFile('preguntes2.json', 'utf8', (err, data) => {
@@ -36,17 +61,43 @@ app.get('/start', (req, res) => {
   });
 });
 
+function resultats(resposta_usuari, allQuestions) {
+  let res_cor = 0
+  let res_inc = 0
+
+  resposta_usuari.forEach(item => {
+    const pregunta = item.pregunta
+    const resposta = item.resposta
+
+    const questionIndex = allQuestions.preguntes.findIndex(q => q.pregunta.trim() === pregunta.trim());
+    if (questionIndex !== -1) {
+      if (allQuestions.preguntes[questionIndex].resposta_correcta === resposta) res_cor++;
+      else res_inc++;
+    }
+  });
+
+  const resultats = {
+    correctes: res_cor,
+    incorrectes: res_inc
+  }
+
+  console.log(resultats)
+
+  return resultats
+}
+
 app.post('/over', (req, res) => {
-  console.log(req.body)
+  const resposta_usuari = req.body
   const pathMainDir = __dirname + "\\Jocs";
   const pathRespostes_usuaris = path.join(pathMainDir, "Respostes_usuarisOriginal.json")
+
+  console.log(resposta_usuari)
   
   const fechaActual = new Date();
   const dia = fechaActual.getDate();
   const mes = fechaActual.getMonth() + 1;
   const year = fechaActual.getFullYear(); 
   const pathDirective = path.join(pathMainDir, `${dia}-${mes}-${year}`);
-
   if(!fs.existsSync(pathDirective)) {
     fs.mkdir(pathDirective, (err) => {
       if(err) console.log("Error");
@@ -56,30 +107,50 @@ app.post('/over', (req, res) => {
   else console.log("Ya existe");
 
   const filePath = path.join(pathDirective, "Respostes_usuaris.json")
+  const jsonData = JSON.parse(fs.readFileSync(pathRespostes_usuaris, 'utf8'));
 
   if(!fs.existsSync(filePath)) {
-    const jsonData = JSON.parse(fs.readFileSync(pathRespostes_usuaris));
+    resposta_usuari.forEach(item => {
+      const pregunta = item.pregunta
+      const resposta = item.resposta
 
-    // Buscar la pregunta y actualizar el contador de la respuesta del usuario
-    const questionIndex = jsonData.questions.findIndex(q => q.question === question);
-    if (questionIndex !== -1) {
-      const answerIndex = jsonData.questions[questionIndex].answer_users.findIndex(a => a.answer === userAnswer);
-      if (answerIndex !== -1) {
-        jsonData.questions[questionIndex].answer_users[answerIndex].counter += 1; // Incrementar contador
+      const questionIndex = jsonData.preguntes.findIndex(q => q.pregunta.trim() === pregunta.trim());
+      if (questionIndex !== -1) {
+        const answerIndex = jsonData.preguntes[questionIndex].resposta_usuaris.findIndex(a => a.resposta.trim() === resposta.trim());
+        console.log(answerIndex)
+        if (answerIndex !== -1) {
+          jsonData.preguntes[questionIndex].resposta_usuaris[answerIndex].contador += 1; // Incrementar contador
+        }
       }
-    }
-
+    });
+    
     fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2))
     console.log("Actualizado")
   }
   else {
-    
+    const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+
+    resposta_usuari.forEach(item => {
+      const pregunta = item.pregunta
+      const resposta = item.resposta
+
+      const questionIndex = jsonData.preguntes.findIndex(q => q.pregunta.trim() === pregunta.trim());
+      console.log(questionIndex)
+      if (questionIndex !== -1) {
+        const answerIndex = jsonData.preguntes[questionIndex].resposta_usuaris.findIndex(a => a.resposta.trim() === resposta.trim());
+        console.log(answerIndex)
+        if (answerIndex !== -1) {
+          jsonData.preguntes[questionIndex].resposta_usuaris[answerIndex].contador += 1; // Incrementar contador
+        }
+      }
+    });
+
+    fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2))
+    console.log("Actualizado")
   }
 
-  fs.writeFile(pathFile, obj, (err) => {
-    if(err) return res.status(500).json({mesaje: 'Error al crear archivo'})
-    res.status(200).json({mensaje: 'Archivo creado'})
-  });
+  const resultatsTotal = resultats(resposta_usuari, jsonData)
+  res.json(resultatsTotal)
 })
 
 app.delete('/eliminar', (req, res) => {
@@ -144,7 +215,7 @@ app.put('/actualizar', (req, res) => {
 
     console.log(updatedQuestionData.pregunta_original)
 
-    const index = allQuestions.preguntes.findIndex(p => p.pregunta === updatedQuestionData.pregunta_original);
+    const index = allQuestions.preguntes.findIndex(p => p.pregunta.trim() === updatedQuestionData.pregunta_original.trim());
 
     console.log(index)
 
@@ -178,26 +249,3 @@ app.put('/actualizar', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-
-function random(jsonData) {
-
-  let numQ = [];
-  const questions = jsonData.preguntes;
-
-  for(let i = 0;i < questions.length;i++) {
-    numQ[i] = questions[Math.floor(Math.random() * questions.length)];
-  }
-
-  const newJson = numQ.map(q => ({
-    pregunta: q.pregunta,
-    respostes: mezclarRespuestas(q.resposta_correcta, q.respostes_incorrectes),
-    imatge: q.imatge
-  }));
-
-  return newJson;
-}
-
-function mezclarRespuestas(resposta_correcta, respostes_incorrectes) {
-  const respuestas = [resposta_correcta, ...respostes_incorrectes];
-  return respuestas.sort(() => Math.random() - 0.5); // Mezcla aleatoria de respuestas
-}
