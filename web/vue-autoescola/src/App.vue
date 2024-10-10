@@ -13,6 +13,8 @@ const inc3 = ref('')
 
 const preguntaOriginal = ref('')
 
+const esta = ref('')
+
 async function fetchPreguntes() {
   try {
     const res = await fetch('http://localhost:3000');
@@ -40,6 +42,8 @@ function opcions(valor, index) {
     inc2.value = index.respostes_incorrectes[1]
     inc3.value = index.respostes_incorrectes[2]
   }
+
+  if(valor === 'esta') estadistiques()
 }
 
 async function eliminarPregunta(pregunta) {
@@ -81,7 +85,7 @@ async function afegir() {
   fetchPreguntes();
 }
 
-async function acutalizarPregunta() {
+async function actualitzaPregunta() {
   const newData = [inc1.value, inc2.value, inc3.value];
 
   const updateQuestion = {
@@ -105,6 +109,16 @@ async function acutalizarPregunta() {
   fetchPreguntes();
 }
 
+async function estadistiques() {
+  try {
+    const res = await fetch('http://localhost:3000/estadistica')
+    const data =  await res.json();
+    esta.value = data;
+  } catch (err) {
+    console.log("Error", err)
+  }
+}
+
 onMounted(() => {
   fetchPreguntes();
 })
@@ -117,11 +131,15 @@ onMounted(() => {
   <br>
   <div>
     <button @click="opcions('afegir')">Nova pregunta</button>
-    <button @click="opcions('start')">Llista de preguntes</button>
+    <button @click="opcions('llista')">Llista de preguntes</button>
+    <button @click="opcions('esta')">Estadistiques</button>
   </div>
   <br>
-  <div class="preguntes" v-for="index in newObj" :key="index" v-if="preg === 'start'">
+  <div class="preguntes" v-for="index in newObj" :key="index" v-if="preg === 'llista'">
     <h2>{{ index.pregunta }}</h2>
+    <br>
+    <img :src="index.imatge" alt="Imatge">
+    <br>
     <ul>
       <li>Resposta correcta: {{ index.resposta_correcta }}</li>
       <li v-for="(resposta_incorrecta, i) in index.respostes_incorrectes" :key="i">
@@ -129,7 +147,6 @@ onMounted(() => {
         <br>
       </li>
     </ul>
-    <img :src="index.imatge" alt="Imatge">
     <br>
     <div class="botones">
       <button @click="eliminarPregunta(index)">Eliminar</button>
@@ -138,7 +155,7 @@ onMounted(() => {
     <br><br>
   </div>
   <div id="novesPreguntes" v-if="preg === 'afegir'">
-    <h1>Nueva pregunta</h1>
+    <h1>Nova pregunta</h1>
     <input v-model="pregunta" placeholder="Pregunta">
     <br>
     <input v-model="resposta_correcta" placeholder="Resposta correcta">
@@ -162,6 +179,9 @@ onMounted(() => {
     <p>Resposta correcta: </p>
     <input v-model="resposta_correcta" :placeholder="resposta_correcta">
     <br>
+    <p>URL:</p>
+    <input v-model="url" :placeholder="url">
+    <br>
     <p>Respostes incorrectes: </p>
     <ul>
       <li><input v-model="inc1" :placeholder="inc1"></li>
@@ -169,7 +189,11 @@ onMounted(() => {
       <li><input v-model="inc3" :placeholder="inc3"></li>
     </ul>
     <br>
-    <button @click="acutalizarPregunta()">Actualizar</button>
+    <button @click="actualitzaPregunta()">Actualizar</button>
+  </div>
+  <div v-if="preg === 'esta'">
+    <h1>Estadistiques</h1>
+    <br>
   </div>
 </template>
 
@@ -250,11 +274,11 @@ onMounted(() => {
 
   /* Encabezado para formularios de agregar y editar preguntas */
   h1 {
-    color: white;
+    color: black;
   }
 
   /* Espaciado de los elementos dentro del formulario */
-  input, textarea {
+  input textarea {
     margin-bottom: 15px;
   }
 
