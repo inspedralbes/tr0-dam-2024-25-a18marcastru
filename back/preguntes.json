@@ -4,37 +4,37 @@
             "pregunta": "¿Cuál es la velocidad máxima permitida en autopistas para turismos en España?",
             "resposta_correcta": "120 km/h",
             "respostes_incorrectes": ["100 km/h", "130 km/h", "90 km/h"],
-            "imatge": "https://exemple.com/autopista.jpg"
+            "imatge": "https://www.safetysignsireland.ie/image/cache/catalog/Chapter%208%20Road%20Works%20Signs/120%20kmh%20Sign-228x228.jpg"
         },
         {
             "pregunta": "¿Qué significa una señal de tráfico con un círculo rojo y un número dentro?",
             "resposta_correcta": "Límite de velocidad",
             "respostes_incorrectes": ["Prohibición de adelantamiento", "Fin de restricción", "Obligación de detenerse"],
-            "imatge": "https://exemple.com/limite_velocidad.jpg"
+            "imatge": "https://st.depositphotos.com/1006706/3197/i/950/depositphotos_31972837-stock-photo-10-speed-limit-sign.jpg"
         },
         {
             "pregunta": "¿Qué color tiene la señal de ceda el paso?",
             "resposta_correcta": "Blanco con borde rojo",
             "respostes_incorrectes": ["Azul", "Amarillo", "Verde"],
-            "imatge": "https://exemple.com/ceda_el_paso.jpg"
+            "imatge": "https://images0.autocasion.com/unsafe/1200x800/actualidad/wp-content/uploads/2021/09/ceda-el-paso.jpg"
         },
         {
             "pregunta": "¿En qué situaciones está permitido adelantar por la derecha?",
             "resposta_correcta": "En vías con más de un carril por sentido y tráfico denso",
             "respostes_incorrectes": ["Nunca", "En autopistas", "En zonas urbanas"],
-            "imatge": "https://exemple.com/adelantar.jpg"
+            "imatge": "http://colotest.com/COLOTEST1/images/carriles/3carr2adel.jpg"
         },
         {
             "pregunta": "¿Cómo se debe estacionar en una pendiente descendente?",
             "resposta_correcta": "Girar las ruedas hacia la acera y poner el freno de mano",
             "respostes_incorrectes": ["Dejar el coche en punto muerto", "Girar las ruedas hacia la calzada", "Apagar el motor y dejar las ruedas rectas"],
-            "imatge": "https://exemple.com/pendiente.jpg"
+            "imatge": "https://carrosenusa.com/wp-content/uploads/estacionar-carro-en-una-pendiente-scaled.jpg"
         },
         {
             "pregunta": "¿Qué luz es obligatoria usar al circular en un túnel?",
             "resposta_correcta": "Luz de cruce",
             "respostes_incorrectes": ["Luz de carretera", "Luz antiniebla", "Luz de posición"],
-            "imatge": "https://exemple.com/tunel.jpg"
+            "imatge": "https://www.motor.mapfre.es/media/2018/05/cuando_usar_las_luces_de_posicion_las_de_cruce_y_las_largas-1280x720.jpg"
         },
         {
             "pregunta": "¿Qué significa una línea continua en la calzada?",

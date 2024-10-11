@@ -39,7 +39,7 @@ def generate_graph(data):
 # Función principal para ejecutar el script
 def main():
     # Leer datos del archivo JSON
-    data = read_data_from_json('data.json')  # Asumiendo que el archivo se llama data.json
+    data = read_data_from_json('preguntes.json')  # Asumiendo que el archivo se llama data.json
     
     # Generar gráficas
     generate_graph(data)

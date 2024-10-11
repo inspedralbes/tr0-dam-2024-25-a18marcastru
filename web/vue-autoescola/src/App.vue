@@ -17,7 +17,7 @@ const esta = ref('')
 
 async function fetchPreguntes() {
   try {
-    const res = await fetch('http://localhost:3000');
+    const res = await fetch('http://dam.inspedralbes.cat:20999');
     const data =  await res.json();
     newObj.value = data.preguntes;
   } catch (err) {
@@ -48,7 +48,7 @@ function opcions(valor, index) {
 
 async function eliminarPregunta(pregunta) {
   try {
-    const res = await fetch('http://localhost:3000/eliminar', {
+    const res = await fetch('http://dam.inspedralbes.cat:20999/eliminar', {
       method: 'DELETE',
       headers: {
         'content-Type': 'application/json'
@@ -73,7 +73,7 @@ async function afegir() {
     imatge: url.value
   }
 
-  const res = await fetch('http://localhost:3000/afegir', {
+  const res = await fetch('http://dam.inspedralbes.cat:20999/afegir', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -96,7 +96,7 @@ async function actualitzaPregunta() {
     imatge: url.value
   }
 
-  const res = await fetch(`http://localhost:3000/actualizar`, {
+  const res = await fetch(`http://dam.inspedralbes.cat:20999/actualizar`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -111,7 +111,7 @@ async function actualitzaPregunta() {
 
 async function estadistiques() {
   try {
-    const res = await fetch('http://localhost:3000/estadistica')
+    const res = await fetch('http://dam.inspedralbes.cat:20999/estadistica')
     const data =  await res.json();
     esta.value = data;
   } catch (err) {
@@ -132,7 +132,7 @@ onMounted(() => {
   <div>
     <button @click="opcions('afegir')">Nova pregunta</button>
     <button @click="opcions('llista')">Llista de preguntes</button>
-    <button @click="opcions('esta')">Estadistiques</button>
+    <!-- <button @click="opcions('esta')">Estadistiques</button> -->
   </div>
   <br>
   <div class="preguntes" v-for="index in newObj" :key="index" v-if="preg === 'llista'">

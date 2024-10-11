@@ -5,16 +5,16 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const cors = require('cors');
 const { spawn } = require('child_process');
-const port = 3000;
+const port = 20000;
 
 app.use(cors());
 app.use(express.json())
 
 let allQuestions;
-let mySession = []
+let mySessions = []
 
 app.get('/', (req, res) => {
-  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+  fs.readFile('preguntes.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
@@ -59,13 +59,13 @@ function getMySessionId(sessionId, result){
     let obj = {};
     obj.sessionId = sessionId;
     obj.data = result;
-    mySession[sessionId] = obj;
+    mySessions[sessionId] = obj;
     return random(allQuestions, sessionId)
   }
 }
 
 app.get('/start', (req, res) => {
-  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+  fs.readFile('preguntes.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
@@ -81,7 +81,7 @@ app.get('/start', (req, res) => {
 
 /*
 app.get('/start', (req, res) => {
-  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+  fs.readFile('preguntes.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
@@ -123,15 +123,15 @@ function resultats(resposta_usuari, allQuestions) {
 app.post('/over', (req, res) => {
   const resposta_usuari = req.body
   const pathMainDir = __dirname + "\\Jocs";
-  const pathRespostes_usuaris = path.join(pathMainDir, "Respostes_usuarisOriginal.json")
 
-  console.log(resposta_usuari)
-  
+  console.log(mySessions)
+
   const fechaActual = new Date();
   const dia = fechaActual.getDate();
   const mes = fechaActual.getMonth() + 1;
   const year = fechaActual.getFullYear(); 
   const pathDirective = path.join(pathMainDir, `${dia}-${mes}-${year}`);
+
   if(!fs.existsSync(pathDirective)) {
     fs.mkdir(pathDirective, (err) => {
       if(err) console.log("Error");
@@ -141,14 +141,14 @@ app.post('/over', (req, res) => {
   else console.log("Ya existe");
 
   const filePath = path.join(pathDirective, "Respostes_usuaris.json")
-  const jsonData = JSON.parse(fs.readFileSync(pathRespostes_usuaris, 'utf8'));
-
+  const pathRespostes_usuarisOriginal = path.join(pathMainDir, "Respostes_usuarisOriginal.json")
+  
   if(!fs.existsSync(filePath)) {
     resposta_usuari.forEach(item => {
       const pregunta = item.pregunta
       const resposta = item.resposta
-
       const questionIndex = jsonData.preguntes.findIndex(q => q.pregunta.trim() === pregunta.trim());
+
       if (questionIndex !== -1) {
         const answerIndex = jsonData.preguntes[questionIndex].resposta_usuaris.findIndex(a => a.resposta.trim() === resposta.trim());
         console.log(answerIndex)
@@ -162,29 +162,31 @@ app.post('/over', (req, res) => {
     console.log("Actualizado")
   }
   else {
-    const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+    // resposta_usuari.forEach(item => {
+    //   const pregunta = item.pregunta
+    //   const resposta = item.resposta
 
-    resposta_usuari.forEach(item => {
-      const pregunta = item.pregunta
-      const resposta = item.resposta
+    //   const questionIndex = jsonData.preguntes.findIndex(q => q.pregunta.trim() === pregunta.trim());
+    //   console.log(questionIndex)
+    //   if (questionIndex !== -1) {
+    //     const answerIndex = jsonData.preguntes[questionIndex].resposta_usuaris.findIndex(a => a.resposta.trim() === resposta.trim());
+    //     console.log(answerIndex)
+    //     if (answerIndex !== -1) {
+    //       jsonData.preguntes[questionIndex].resposta_usuaris[answerIndex].contador += 1; // Incrementar contador
+    //     }
+    //   }
+    // });
 
-      const questionIndex = jsonData.preguntes.findIndex(q => q.pregunta.trim() === pregunta.trim());
-      console.log(questionIndex)
-      if (questionIndex !== -1) {
-        const answerIndex = jsonData.preguntes[questionIndex].resposta_usuaris.findIndex(a => a.resposta.trim() === resposta.trim());
-        console.log(answerIndex)
-        if (answerIndex !== -1) {
-          jsonData.preguntes[questionIndex].resposta_usuaris[answerIndex].contador += 1; // Incrementar contador
-        }
-      }
-    });
-
-    fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2))
-    console.log("Actualizado")
+    // fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2))
+    // console.log("Actualizado")
   }
+
+  /*
+  
 
   const resultatsTotal = resultats(resposta_usuari, jsonData)
   res.json(resultatsTotal)
+  */
 })
 
 app.delete('/eliminar', (req, res) => {
@@ -196,7 +198,7 @@ app.delete('/eliminar', (req, res) => {
 
   const jsonString = JSON.stringify(allQuestions, null, 2);
 
-  fs.writeFile("preguntes2.json", jsonString, (err) => {
+  fs.writeFile("preguntes1.json", jsonString, (err) => {
     if (err) console.error("Error", err);
     else console.log("Archivo sobrescrito");
   });
@@ -206,7 +208,7 @@ app.delete('/eliminar', (req, res) => {
 app.post('/afegir', (req, res) => {
   const newQuestion = req.body;
 
-  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+  fs.readFile('preguntes.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
@@ -221,7 +223,7 @@ app.post('/afegir', (req, res) => {
 
     const jsonString = JSON.stringify(allQuestions, null, 2);
 
-    fs.writeFile('preguntes2.json', jsonString, (writeErr) => {
+    fs.writeFile('preguntes.json', jsonString, (writeErr) => {
       if (writeErr) {
         console.error("Error al escribir el archivo:", writeErr);
       } else {
@@ -234,7 +236,7 @@ app.post('/afegir', (req, res) => {
 app.put('/actualizar', (req, res) => {
   const updatedQuestionData = req.body;
 
-  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+  fs.readFile('preguntes.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
@@ -265,7 +267,7 @@ app.put('/actualizar', (req, res) => {
 
       const jsonString = JSON.stringify(allQuestions, null, 2);
 
-      fs.writeFile('preguntes2.json', jsonString, (writeErr) => {
+      fs.writeFile('preguntes.json', jsonString, (writeErr) => {
         if (writeErr) {
           console.error("Error al escribir el archivo:", writeErr);
           return res.status(500).json({ message: 'Error al escribir el archivo JSON' });
@@ -282,7 +284,7 @@ app.put('/actualizar', (req, res) => {
 
 app.get('/estadistica', (req, res) => {
   const pathDirGraphic = __dirname + "\\Grafiques"
-  const pythonProcess = spawn('python3', ['generate_graph.py']);
+  const pythonProcess = spawn('py', ['generate_graph.py']);
 
   pythonProcess.stderr.on('data', (data) => {
     console.error(`Error del script de Python: ${data.toString()}`);
