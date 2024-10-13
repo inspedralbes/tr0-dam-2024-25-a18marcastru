@@ -6,11 +6,11 @@
       "resposta_usuaris": [
         {
           "resposta": "100 km/h",
-          "contador": 4
+          "contador": 2
         },
         {
           "resposta": "120 km/h",
-          "contador": 4
+          "contador": 1
         },
         {
           "resposta": "130 km/h",
@@ -28,19 +28,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Prohibición de adelantamiento",
-          "contador": 6
-        },
-        {
-          "resposta": "Límite de velocidad",
           "contador": 1
         },
         {
+          "resposta": "Límite de velocidad",
+          "contador": 3
+        },
+        {
           "resposta": "Fin de restricción",
-          "contador": 4
+          "contador": 3
         },
         {
           "resposta": "Obligación de detenerse",
-          "contador": 2
+          "contador": 1
         }
       ]
     },
@@ -50,11 +50,11 @@
       "resposta_usuaris": [
         {
           "resposta": "Azul",
-          "contador": 5
+          "contador": 3
         },
         {
           "resposta": "Blanco con borde rojo",
-          "contador": 1
+          "contador": 2
         },
         {
           "resposta": "Amarillo",
@@ -62,7 +62,7 @@
         },
         {
           "resposta": "Verde",
-          "contador": 5
+          "contador": 1
         }
       ]
     },
@@ -72,15 +72,15 @@
       "resposta_usuaris": [
         {
           "resposta": "Nunca",
-          "contador": 4
-        },
-        {
-          "resposta": "En vías con más de un carril por sentido y tráfico denso",
           "contador": 2
         },
         {
+          "resposta": "En vías con más de un carril por sentido y tráfico denso",
+          "contador": 0
+        },
+        {
           "resposta": "En autopistas",
-          "contador": 4
+          "contador": 3
         },
         {
           "resposta": "En zonas urbanas",
@@ -94,19 +94,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Dejar el coche en punto muerto",
-          "contador": 4
+          "contador": 2
         },
         {
           "resposta": "Girar las ruedas hacia la acera y poner el freno de mano",
-          "contador": 5
+          "contador": 3
         },
         {
           "resposta": "Girar las ruedas hacia la calzada",
-          "contador": 4
+          "contador": 1
         },
         {
           "resposta": "Apagar el motor y dejar las ruedas rectas",
-          "contador": 0
+          "contador": 2
         }
       ]
     },
@@ -116,19 +116,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Luz de carretera",
-          "contador": 3
+          "contador": 4
         },
         {
           "resposta": "Luz de cruce",
-          "contador": 4
-        },
-        {
-          "resposta": "Luz antiniebla",
           "contador": 2
         },
         {
+          "resposta": "Luz antiniebla",
+          "contador": 1
+        },
+        {
           "resposta": "Luz de posición",
-          "contador": 4
+          "contador": 1
         }
       ]
     },
@@ -138,19 +138,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Es una zona de estacionamiento",
-          "contador": 4
+          "contador": 2
         },
         {
           "resposta": "Prohibido adelantar o cambiar de carril",
-          "contador": 3
+          "contador": 1
         },
         {
           "resposta": "Permite adelantar",
-          "contador": 5
+          "contador": 1
         },
         {
           "resposta": "Indica la mitad de la carretera",
-          "contador": 1
+          "contador": 4
         }
       ]
     },
@@ -160,15 +160,15 @@
       "resposta_usuaris": [
         {
           "resposta": "10 metros",
-          "contador": 3
+          "contador": 2
         },
         {
           "resposta": "La que permita detener el vehículo sin colisionar",
-          "contador": 5
+          "contador": 3
         },
         {
           "resposta": "100 metros",
-          "contador": 3
+          "contador": 1
         },
         {
           "resposta": "Depende de la velocidad máxima permitida",
@@ -182,19 +182,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Carnet de la ITV",
-          "contador": 4
-        },
-        {
-          "resposta": "Permiso de circulación",
           "contador": 0
         },
         {
+          "resposta": "Permiso de circulación",
+          "contador": 4
+        },
+        {
           "resposta": "Certificado médico",
-          "contador": 5
+          "contador": 2
         },
         {
           "resposta": "Recibo del seguro",
-          "contador": 4
+          "contador": 2
         }
       ]
     },
@@ -204,11 +204,11 @@
       "resposta_usuaris": [
         {
           "resposta": "Reducir la velocidad",
-          "contador": 2
+          "contador": 3
         },
         {
           "resposta": "Detenerse completamente",
-          "contador": 3
+          "contador": 0
         },
         {
           "resposta": "Acelerar",
@@ -216,7 +216,7 @@
         },
         {
           "resposta": "Girar a la derecha",
-          "contador": 5
+          "contador": 2
         }
       ]
     }

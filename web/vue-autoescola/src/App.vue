@@ -198,12 +198,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
-  /* Estilo general del body */
   body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
   }
 
-  /* Estilo del header */
   header {
     text-align: center;
     background-color: #007bff;
@@ -211,7 +209,6 @@ onMounted(() => {
     border-radius: 5px;
   }
 
-  /* Contenedor de las preguntas */
   .preguntes {
     border: 2px solid #007bff;
     border-radius: 8px;
@@ -219,7 +216,6 @@ onMounted(() => {
     margin: 20px;
   }
 
-  /* Estilo para las imágenes */
   img {
     width: 100%;
     max-width: 300px;
@@ -227,7 +223,6 @@ onMounted(() => {
     margin-top: 10px;
   }
 
-  /* Estilo de los botones */
   button {
     background-color: #007bff;
     border: none;
@@ -239,20 +234,17 @@ onMounted(() => {
     transition: background-color 0.3s ease;
   }
 
-  /* Cambia el color del botón al pasar el ratón */
   button:hover {
     background-color: #0056b3;
     color: #ffffff;
   }
 
-  /* Alinear los botones en el centro */
   .botones {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
   }
 
-  /* Estilo para los inputs */
   input, textarea {
     width: 100%;
     padding: 10px;
@@ -262,7 +254,6 @@ onMounted(() => {
     font-size: 1rem;
   }
 
-  /* Contenedor para las nuevas preguntas */
   #novesPreguntes {
     background-color: #e9ecef;
     border: 2px solid #007bff;
@@ -272,17 +263,14 @@ onMounted(() => {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  /* Encabezado para formularios de agregar y editar preguntas */
   h1 {
     color: black;
   }
 
-  /* Espaciado de los elementos dentro del formulario */
   input textarea {
     margin-bottom: 15px;
   }
 
-  /* Estilo para los ul de las respuestas incorrectas */
   ul {
     list-style-type: none;
     padding-left: 0;
@@ -295,7 +283,6 @@ onMounted(() => {
     margin-bottom: 10px;
   }
 
-  /* Estilo adicional para botones principales (afegir, editar, etc.) */
   .preguntes button {
     width: 45%;
   }
