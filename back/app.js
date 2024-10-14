@@ -9,6 +9,8 @@ const port = 20000;
 
 app.use(cors());
 app.use(express.json())
+// Ruta para servir los archivos estáticos de la carpeta 'Grafiques'
+app.use('/grafiques', express.static(path.join(__dirname, 'Grafiques')));
 
 let allQuestions;
 let mySessions = []
@@ -344,18 +346,13 @@ app.get('/grafiques', (req, res) => {
       }
 
       // Generar las URLs de todas las imágenes
-      const imageUrls = imageFiles.map(file => `http://localhost:20000/grafiques/${file}`);
+      const imageUrls = imageFiles.map(file => `http://dam.inspedralbes.cat:20999/grafiques/${file}`);
 
       // Enviar la lista de URLs de las imágenes generadas
       res.json({ images: imageUrls });
     });
   });
 });
-
-// Ruta para servir los archivos estáticos de la carpeta 'Grafiques'
-app.use('/grafiques', express.static(path.join(__dirname, 'Grafiques')));
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
