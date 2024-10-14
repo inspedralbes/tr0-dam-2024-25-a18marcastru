@@ -46,13 +46,13 @@ def generate_combined_graph(data, date_str):
     width = 0.35  # Ancho de las barras
 
     fig, ax = plt.subplots(figsize=(12, 8))
-    bars1 = ax.bar(x - width/2, correct_counts, width, label='Correctas', color='green', alpha=0.7)
-    bars2 = ax.bar(x + width/2, incorrect_counts, width, label='Incorrectas', color='red', alpha=0.7)
+    bars1 = ax.bar(x - width/2, correct_counts, width, label='Correctes', color='green', alpha=0.7)
+    bars2 = ax.bar(x + width/2, incorrect_counts, width, label='Incorrectes', color='red', alpha=0.7)
 
     # Etiquetas y título
     ax.set_xlabel('Preguntes', fontsize=12)
-    ax.set_ylabel('Porcentaje (%)', fontsize=12)
-    ax.set_title('Porcentaje de Respuestas Correctas e Incorrectas por Pregunta', fontsize=14)
+    ax.set_ylabel('Percentatge (%)', fontsize=12)
+    ax.set_title('Percentatge de Respostes Correctes i Incorrectes per Pregunta', fontsize=14)
     ax.set_xticks(x)
     ax.set_xticklabels(preguntas, rotation=30, ha='right', fontsize=7)
 
@@ -80,7 +80,7 @@ def generate_combined_graph(data, date_str):
 def main():
     # Obtener la fecha pasada como argumento
     if len(sys.argv) < 2:
-        print("Error: Debes proporcionar la fecha como argumento.")
+        print("Error: Has de proporcionar la data com a argument")
         return
 
     fecha_actual = sys.argv[1]
@@ -89,7 +89,7 @@ def main():
     json_file = os.path.join(json_dir, 'Respostes_usuaris.json')
 
     if not os.path.exists(json_file):
-        print(f"Error: No se encontró el archivo {json_file}")
+        print(f"Error: No es va trobar l'arxiu {json_file}")
         return
 
     data = read_data_from_json(json_file)

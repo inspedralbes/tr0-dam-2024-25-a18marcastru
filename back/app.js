@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const cors = require('cors');
 const { spawn } = require('child_process');
-const port = 20000;
+const port = 20999;
 
 app.use(cors());
 app.use(express.json())
@@ -33,25 +33,21 @@ function random(jsonData, sessionId) {
   const preguntes = jsonData.preguntes;
 
   if (!mySessions[sessionId]) {
-    // Si la sesión no existe, generar preguntas aleatorias y crear la sesión
     while (preguntes.length > 0) {
       const randomIndex = Math.floor(Math.random() * preguntes.length);
       numQ.push(preguntes[randomIndex]);
       preguntes.splice(randomIndex, 1);
     }
 
-    // Crear la nueva sesión
     let obj = {
       sessionId: sessionId,
       data: numQ
     };
     mySessions[sessionId] = obj;
   } else {
-    // Si la sesión ya existe, reutilizar las preguntas ya almacenadas
     numQ = mySessions[sessionId].data;
   }
 
-  // Crear el nuevo JSON con la sesión
   const newJson = {
     token: sessionId,
     preguntes: numQ.map(q => ({
@@ -137,7 +133,6 @@ app.post('/over', (req, res) => {
   const jsonData = JSON.parse(fs.readFileSync(pathRespostes_usuarisBase, 'utf8'));
   const arrIndex = []
 
-  // Verificar si el archivo ya existe o no
   if (!fs.existsSync(filePath)) {
     preguntes_session.forEach(i => {
       const index = jsonData.preguntes.findIndex(q => q.pregunta === i.pregunta);
@@ -149,7 +144,7 @@ app.post('/over', (req, res) => {
         const pregunta = jsonData.preguntes[arrIndex[idx]];
         const answerIndex = pregunta.resposta_usuaris.findIndex(a => a.resposta === item);
         if (answerIndex !== -1) {
-          pregunta.resposta_usuaris[answerIndex].contador += 1; // Incrementar contador
+          pregunta.resposta_usuaris[answerIndex].contador += 1;
         }
       }
     });
@@ -169,7 +164,7 @@ app.post('/over', (req, res) => {
         const pregunta = jsonData.preguntes[arrIndex[idx]];
         const answerIndex = pregunta.resposta_usuaris.findIndex(a => a.resposta === item);
         if (answerIndex !== -1) {
-          pregunta.resposta_usuaris[answerIndex].contador += 1; // Incrementar contador
+          pregunta.resposta_usuaris[answerIndex].contador += 1;
         }
       }
     });
@@ -259,12 +254,11 @@ app.put('/actualitzar', (req, res) => {
         }
       });
     } else {
-      // Si la pregunta no se encuentra, enviamos un error
       console.log('Pregunta no encontrada')
     }
   });
 
-  const pathJson = path.join(__dirname, "Jocs", "Respostes_usuarisBase.json");
+  // const pathJson = path.join(__dirname, "Jocs", "Respostes_usuarisBase.json");
 
   // fs.readFile(pathJson, 'utf8', (err, data) => {
   //   if (err) {
@@ -346,7 +340,7 @@ app.get('/grafiques', (req, res) => {
       }
 
       // Generar las URLs de todas las imágenes
-      const imageUrls = imageFiles.map(file => `http://dam.inspedralbes.cat:20999/grafiques/${file}`);
+      const imageUrls = imageFiles.map(file => `http://localhost:20999/grafiques/${file}`);
 
       // Enviar la lista de URLs de las imágenes generadas
       res.json({ images: imageUrls });

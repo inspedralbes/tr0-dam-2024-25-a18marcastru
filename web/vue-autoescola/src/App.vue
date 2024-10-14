@@ -12,12 +12,13 @@ const inc2 = ref('')
 const inc3 = ref('')
 
 const preguntaOriginal = ref('')
+const messageUpdate = ref('')
 
 const imageUrls = ref([]);
 
 async function fetchQuestions() {
   try {
-    const res = await fetch('http://dam.inspedralbes.cat:20999');
+    const res = await fetch('http://localhost:20999');
     const data =  await res.json();
     newObj.value = data.preguntes;
   } catch (err) {
@@ -49,7 +50,7 @@ function options(valor, index) {
 
 async function fetchDeleteQuestion(pregunta) {
   try {
-    const res = await fetch('http://dam.inspedralbes.cat:20999/eliminar', {
+    const res = await fetch('http://localhost:20999/eliminar', {
       method: 'DELETE',
       headers: {
         'content-Type': 'application/json'
@@ -74,7 +75,7 @@ async function fetchAdd() {
     imatge: url.value
   }
 
-  const res = await fetch('http://dam.inspedralbes.cat:20999/afegir', {
+  const res = await fetch('http://localhost:20999/afegir', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -97,7 +98,7 @@ async function fetchUpdateQuestion() {
     imatge: url.value
   }
 
-  const res = await fetch(`http://dam.inspedralbes.cat:20999/actualitzar`, {
+  const res = await fetch(`http://localhost:20999/actualitzar`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -106,13 +107,14 @@ async function fetchUpdateQuestion() {
   })
   const data = await res.json();
   console.log(data.message);
-  options('edit',updateQuestion)
+  messageUpdate.value = "missatge";
+  options('edit',updateQuestion);
   fetchQuestions();
 }
 
 async function fetchGraphic() {
   try {
-    const res = await fetch('http://dam.inspedralbes.cat:20999/grafiques');
+    const res = await fetch('http://localhost:20999/grafiques');
     if (res.ok) {
       const data = await res.json();
       imageUrls.value = data.images; // Almacena las URLs de las imágenes
@@ -178,6 +180,7 @@ onMounted(() => {
   <div v-if="preg === 'edit'">
     <br>
     <h1>Editar</h1>
+    <p v-if="messageUpdate === 'missatge'" id="messageUpdate">Actualitzat</p>
     <p>Pregunta: </p>
     <textarea v-model="pregunta" rows="2" cols="50" :placeholder="pregunta"></textarea>
     <br>
@@ -298,5 +301,9 @@ onMounted(() => {
 
   #grafiques img {
     margin: 10px 0;
+  }
+
+  #messageUpdate {
+    color: green;
   }
 </style>
