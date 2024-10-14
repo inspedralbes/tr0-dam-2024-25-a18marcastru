@@ -1,224 +1,202 @@
 {
-    "preguntes": [
+  "preguntes": [
+    {
+      "pregunta": "¿Qué significa una señal de tráfico con un círculo rojo y un número dentro?",
+      "resposta_correcta": "Límite de velocidad",
+      "resposta_usuaris": [
         {
-            "pregunta": "¿Cuál es la velocidad máxima permitida en autopistas para turismos en España?",
-            "resposta_correcta": "120 km/h",
-            "resposta_usuaris": [
-                {
-                    "resposta": "100 km/h",
-                    "contador": 0
-                },
-                {
-                    "resposta": "120 km/h",
-                    "contador": 0
-                },
-                {
-                    "resposta": "130 km/h",
-                    "contador": 0
-                },
-                {
-                    "resposta": "90 km/h",
-                    "contador": 0
-                }
-            ]
+          "resposta": "Prohibición de adelantamiento",
+          "contador": 0
         },
         {
-            "pregunta": "¿Qué significa una señal de tráfico con un círculo rojo y un número dentro?",
-            "resposta_correcta": "Límite de velocidad",
-            "resposta_usuaris": [
-                {
-                    "resposta": "Prohibición de adelantamiento",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Límite de velocidad",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Fin de restricción",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Obligación de detenerse",
-                    "contador": 0
-                }
-            ]
+          "resposta": "Límite de velocidad",
+          "contador": 0
         },
         {
-            "pregunta": "¿Qué color tiene la señal de ceda el paso?",
-            "resposta_correcta": "Blanco con borde rojo",
-            "resposta_usuaris": [
-                {
-                    "resposta": "Azul",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Blanco con borde rojo",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Amarillo",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Verde",
-                    "contador": 0
-                }
-            ]
+          "resposta": "Fin de restricción",
+          "contador": 0
         },
         {
-            "pregunta": "¿En qué situaciones está permitido adelantar por la derecha?",
-            "resposta_correcta": "En vías con más de un carril por sentido y tráfico denso",
-            "resposta_usuaris": [
-                {
-                    "resposta": "Nunca",
-                    "contador": 0
-                },
-                {
-                    "resposta": "En vías con más de un carril por sentido y tráfico denso",
-                    "contador": 0
-                },
-                {
-                    "resposta": "En autopistas",
-                    "contador": 0
-                },
-                {
-                    "resposta": "En zonas urbanas",
-                    "contador": 0
-                }
-            ]
-        },
-        {
-            "pregunta": "¿Cómo se debe estacionar en una pendiente descendente?",
-            "resposta_correcta": "Girar las ruedas hacia la acera y poner el freno de mano",
-            "resposta_usuaris": [
-                {
-                    "resposta": "Dejar el coche en punto muerto",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Girar las ruedas hacia la acera y poner el freno de mano",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Girar las ruedas hacia la calzada",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Apagar el motor y dejar las ruedas rectas",
-                    "contador": 0
-                }
-            ]
-        },
-        {
-            "pregunta": "¿Qué luz es obligatoria usar al circular en un túnel?",
-            "resposta_correcta": "Luz de cruce",
-            "resposta_usuaris": [
-                {
-                    "resposta": "Luz de carretera",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Luz de cruce",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Luz antiniebla",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Luz de posición",
-                    "contador": 0
-                }
-            ]
-        },
-        {
-            "pregunta": "¿Qué significa una línea continua en la calzada?",
-            "resposta_correcta": "Prohibido adelantar o cambiar de carril",
-            "resposta_usuaris": [
-                {
-                    "resposta": "Es una zona de estacionamiento",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Prohibido adelantar o cambiar de carril",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Permite adelantar",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Indica la mitad de la carretera",
-                    "contador": 0
-                }
-            ]
-        },
-        {
-            "pregunta": "¿Qué distancia de seguridad se debe mantener con el vehículo de delante?",
-            "resposta_correcta": "La que permita detener el vehículo sin colisionar",
-            "resposta_usuaris": [
-                {
-                    "resposta": "10 metros",
-                    "contador": 0
-                },
-                {
-                    "resposta": "La que permita detener el vehículo sin colisionar",
-                    "contador": 0
-                },
-                {
-                    "resposta": "100 metros",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Depende de la velocidad máxima permitida",
-                    "contador": 0
-                }
-            ]
-        },
-        {
-            "pregunta": "¿Qué documento es obligatorio llevar en el vehículo?",
-            "resposta_correcta": "Permiso de circulación",
-            "resposta_usuaris": [
-                {
-                    "resposta": "Carnet de la ITV",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Permiso de circulación",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Certificado médico",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Recibo del seguro",
-                    "contador": 0
-                }
-            ]
-        },
-        {
-            "pregunta": "¿Qué debe hacer si ve una señal de STOP?",
-            "resposta_correcta": "Detenerse completamente",
-            "resposta_usuaris": [
-                {
-                    "resposta": "Reducir la velocidad",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Detenerse completamente",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Acelerar",
-                    "contador": 0
-                },
-                {
-                    "resposta": "Girar a la derecha",
-                    "contador": 0
-                }
-            ]
+          "resposta": "Obligación de detenerse",
+          "contador": 0
         }
-    ]
+      ]
+    },
+    {
+      "pregunta": "¿Qué color tiene la señal de ceda el paso?",
+      "resposta_correcta": "Blanco con borde rojo",
+      "resposta_usuaris": [
+        {
+          "resposta": "Azul",
+          "contador": 0
+        },
+        {
+          "resposta": "Blanco con borde rojo",
+          "contador": 0
+        },
+        {
+          "resposta": "Amarillo",
+          "contador": 0
+        },
+        {
+          "resposta": "Verde",
+          "contador": 0
+        }
+      ]
+    },
+    {
+      "pregunta": "¿En qué situaciones está permitido adelantar por la derecha?",
+      "resposta_correcta": "En vías con más de un carril por sentido y tráfico denso",
+      "resposta_usuaris": [
+        {
+          "resposta": "Nunca",
+          "contador": 0
+        },
+        {
+          "resposta": "En vías con más de un carril por sentido y tráfico denso",
+          "contador": 0
+        },
+        {
+          "resposta": "En autopistas",
+          "contador": 0
+        },
+        {
+          "resposta": "En zonas urbanas",
+          "contador": 0
+        }
+      ]
+    },
+    {
+      "pregunta": "¿Cómo se debe estacionar en una pendiente descendente?",
+      "resposta_correcta": "Girar las ruedas hacia la acera y poner el freno de mano",
+      "resposta_usuaris": [
+        {
+          "resposta": "Dejar el coche en punto muerto",
+          "contador": 0
+        },
+        {
+          "resposta": "Girar las ruedas hacia la acera y poner el freno de mano",
+          "contador": 0
+        },
+        {
+          "resposta": "Girar las ruedas hacia la calzada",
+          "contador": 0
+        },
+        {
+          "resposta": "Apagar el motor y dejar las ruedas rectas",
+          "contador": 0
+        }
+      ]
+    },
+    {
+      "pregunta": "¿Qué luz es obligatoria usar al circular en un túnel?",
+      "resposta_correcta": "Luz de cruce",
+      "resposta_usuaris": [
+        {
+          "resposta": "Luz de carretera",
+          "contador": 0
+        },
+        {
+          "resposta": "Luz de cruce",
+          "contador": 0
+        },
+        {
+          "resposta": "Luz antiniebla",
+          "contador": 0
+        },
+        {
+          "resposta": "Luz de posición",
+          "contador": 0
+        }
+      ]
+    },
+    {
+      "pregunta": "¿Qué significa una línea continua en la calzada?",
+      "resposta_correcta": "Prohibido adelantar o cambiar de carril",
+      "resposta_usuaris": [
+        {
+          "resposta": "Es una zona de estacionamiento",
+          "contador": 0
+        },
+        {
+          "resposta": "Prohibido adelantar o cambiar de carril",
+          "contador": 0
+        },
+        {
+          "resposta": "Permite adelantar",
+          "contador": 0
+        },
+        {
+          "resposta": "Indica la mitad de la carretera",
+          "contador": 0
+        }
+      ]
+    },
+    {
+      "pregunta": "¿Qué distancia de seguridad se debe mantener con el vehículo de delante?",
+      "resposta_correcta": "La que permita detener el vehículo sin colisionar",
+      "resposta_usuaris": [
+        {
+          "resposta": "10 metros",
+          "contador": 0
+        },
+        {
+          "resposta": "La que permita detener el vehículo sin colisionar",
+          "contador": 0
+        },
+        {
+          "resposta": "100 metros",
+          "contador": 0
+        },
+        {
+          "resposta": "Depende de la velocidad máxima permitida",
+          "contador": 0
+        }
+      ]
+    },
+    {
+      "pregunta": "¿Qué documento es obligatorio llevar en el vehículo?",
+      "resposta_correcta": "Permiso de circulación",
+      "resposta_usuaris": [
+        {
+          "resposta": "Carnet de la ITV",
+          "contador": 0
+        },
+        {
+          "resposta": "Permiso de circulación",
+          "contador": 0
+        },
+        {
+          "resposta": "Certificado médico",
+          "contador": 0
+        },
+        {
+          "resposta": "Recibo del seguro",
+          "contador": 0
+        }
+      ]
+    },
+    {
+      "pregunta": "¿Qué debe hacer si ve una señal de STOP?",
+      "resposta_correcta": "Detenerse completamente",
+      "resposta_usuaris": [
+        {
+          "resposta": "Reducir la velocidad",
+          "contador": 0
+        },
+        {
+          "resposta": "Detenerse completamente",
+          "contador": 0
+        },
+        {
+          "resposta": "Acelerar",
+          "contador": 0
+        },
+        {
+          "resposta": "Girar a la derecha",
+          "contador": 0
+        }
+      ]
+    }
+  ]
 }

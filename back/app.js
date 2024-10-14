@@ -174,10 +174,11 @@ app.post('/over', (req, res) => {
 
     fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2))
     console.log("Actualizado")
-
-    const resultatsTotal = resultats(resposta_usuari, preguntes_session)
-    res.json(resultatsTotal)
   }
+
+  const resultatsTotal = resultats(resposta_usuari, preguntes_session)
+  console.log(resultatsTotal)
+  res.json(resultatsTotal)
 });
 
 app.delete('/eliminar', (req, res) => {
@@ -189,7 +190,7 @@ app.delete('/eliminar', (req, res) => {
 
   const jsonString = JSON.stringify(allQuestions, null, 2);
 
-  fs.writeFile("preguntes1.json", jsonString, (err) => {
+  fs.writeFile("preguntes.json", jsonString, (err) => {
     if (err) console.error("Error", err);
     else console.log("Archivo sobrescrito");
   });
@@ -224,10 +225,10 @@ app.post('/afegir', (req, res) => {
   });
 });
 
-app.put('/actualizar', (req, res) => {
+app.put('/actualitzar', (req, res) => {
   const updatedQuestionData = req.body;
 
-  fs.readFile('preguntes2.json', 'utf8', (err, data) => {
+  fs.readFile('preguntes.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Error al leer el archivo JSON' });
     }
@@ -241,26 +242,67 @@ app.put('/actualizar', (req, res) => {
         pregunta: updatedQuestionData.pregunta,
         resposta_correcta: updatedQuestionData.resposta_correcta,
         respostes_incorrectes: updatedQuestionData.respostes_incorrectes,
-        imatge: ""
+        imatge: updatedQuestionData.imatge
       }
 
       allQuestions.preguntes[index] = newUpdatedQuestionData;
 
       const jsonString = JSON.stringify(allQuestions, null, 2);
 
-      fs.writeFile('preguntes2.json', jsonString, (writeErr) => {
+      fs.writeFile('preguntes.json', jsonString, (writeErr) => {
         if (writeErr) {
           console.error("Error al escribir el archivo:", writeErr);
-          return res.status(500).json({ message: 'Error al escribir el archivo JSON' });
         } else {
           res.json({ message: "Pregunta actualizada exitosamente." });
         }
       });
     } else {
       // Si la pregunta no se encuentra, enviamos un error
-      res.status(404).json({ message: 'Pregunta no encontrada' });
+      console.log('Pregunta no encontrada')
     }
   });
+
+  const pathJson = path.join(__dirname, "Jocs", "Respostes_usuarisBase.json");
+
+  // fs.readFile(pathJson, 'utf8', (err, data) => {
+  //   if (err) {
+  //     return res.status(500).json({ message: 'Error al leer el archivo JSON2' });
+  //   }
+
+  //   const allQuestions = JSON.parse(data);
+
+  //   // Encontrar el índice de la pregunta a actualizar
+  //   const index = allQuestions.preguntes.findIndex(p => p.pregunta.trim() === updatedQuestionData.pregunta_original.trim());
+
+  //   if (index !== -1) {
+  //     // Crear la nueva estructura de pregunta
+  //     const newUpdatedQuestionData = {
+  //       pregunta: updatedQuestionData.pregunta,
+  //       resposta_correcta: updatedQuestionData.resposta_correcta,
+  //       resposta_usuaris: updatedQuestionData.resposta_usuaris, // Esto incluye la estructura correcta de respuestas de los usuarios
+  //       imatge: updatedQuestionData.imatge || ""  // Campo para imagen (opcional)
+  //     };
+
+  //     // Reemplazar la pregunta en el índice encontrado
+  //     allQuestions.preguntes[index] = newUpdatedQuestionData;
+
+  //     // Convertir el objeto actualizado a JSON
+  //     const jsonString = JSON.stringify(allQuestions, null, 2);
+
+  //     // Escribir el archivo actualizado
+  //     fs.writeFile(pathJson, jsonString, (writeErr) => {
+  //       if (writeErr) {
+  //         console.error("Error al escribir el archivo:", writeErr);
+  //         return res.status(500).json({ message: 'Error al escribir el archivo JSON' });
+  //       } else {
+  //         res.json({ message: "Pregunta actualizada exitosamente." });
+  //       }
+  //     });
+  //   } else {
+  //     // Si no se encuentra la pregunta, enviar un mensaje de error
+  //     res.status(404).json({ message: 'Pregunta no encontrada' });
+  //   }
+  // });
 })
 
 app.get('/grafiques', (req, res) => {
@@ -269,38 +311,50 @@ app.get('/grafiques', (req, res) => {
   // Obtener la fecha actual en formato día-mes-año
   const fechaActual = new Date().toLocaleDateString('es-ES').replace(/\//g, '-'); // Formato 'dd-mm-aaaa'
 
-  // Pasar la fecha al script de Python
+  // Ejecutar el script de Python que genera las gráficas
   const pythonProcess = spawn('py', ['generate_graph.py', fechaActual]);
 
+  // Capturar errores del proceso Python
   pythonProcess.stderr.on('data', (data) => {
     console.error(`Error del script de Python: ${data.toString()}`);
   });
 
+  // Capturar la salida del proceso Python (si es necesario)
   pythonProcess.stdout.on('data', (data) => {
     console.log(`Salida del script: ${data.toString()}`);
   });
 
+  // Cuando el script de Python termina de ejecutarse
   pythonProcess.on('close', (code) => {
     if (code !== 0) {
       return res.status(500).send(`El proceso Python finalizó con el código ${code}`);
     }
 
-    const imagePath = path.join(pathDirGraphic, `${fechaActual}.png`);  // Usar el nombre de archivo con fecha
-    console.log(`Buscando la imagen en: ${imagePath}`);
-    
-    // Verificar que el archivo exista antes de enviarlo
-    if (!fs.existsSync(imagePath)) {
-      return res.status(404).send('La gráfica no existe.');
-    }
-
-    res.sendFile(imagePath, (err) => {
+    // Leer todas las imágenes generadas en el directorio 'Grafiques'
+    fs.readdir(pathDirGraphic, (err, files) => {
       if (err) {
-        console.error(`Error al enviar la gráfica: ${err}`);
-        res.status(500).send('Error al enviar la gráfica.');
+        return res.status(500).json({ message: 'Error al leer el directorio de gráficos' });
       }
+
+      // Filtrar solo los archivos que coinciden con la fecha actual y que son imágenes (ej. PNG)
+      const imageFiles = files.filter(file => file.startsWith(fechaActual) && file.endsWith('.png'));
+
+      if (imageFiles.length === 0) {
+        return res.status(404).json({ message: 'No se encontraron gráficos' });
+      }
+
+      // Generar las URLs de todas las imágenes
+      const imageUrls = imageFiles.map(file => `http://localhost:20000/grafiques/${file}`);
+
+      // Enviar la lista de URLs de las imágenes generadas
+      res.json({ images: imageUrls });
     });
   });
 });
+
+// Ruta para servir los archivos estáticos de la carpeta 'Grafiques'
+app.use('/grafiques', express.static(path.join(__dirname, 'Grafiques')));
+
 
 
 app.listen(port, () => {

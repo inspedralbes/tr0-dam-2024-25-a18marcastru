@@ -13,9 +13,9 @@ const inc3 = ref('')
 
 const preguntaOriginal = ref('')
 
-const esta = ref('')
+const imageUrls = ref([]);
 
-async function fetchPreguntes() {
+async function fetchQuestions() {
   try {
     const res = await fetch('http://dam.inspedralbes.cat:20999');
     const data =  await res.json();
@@ -25,7 +25,7 @@ async function fetchPreguntes() {
   }
 }
 
-function opcions(valor, index) {
+function options(valor, index) {
   preg.value = valor;
 
   pregunta.value = ""
@@ -37,16 +37,17 @@ function opcions(valor, index) {
   if(valor === 'edit') {
     preguntaOriginal.value = index.pregunta
     pregunta.value = index.pregunta
+    url.value = index.imatge
     resposta_correcta.value = index.resposta_correcta
     inc1.value = index.respostes_incorrectes[0]
     inc2.value = index.respostes_incorrectes[1]
     inc3.value = index.respostes_incorrectes[2]
   }
 
-  if(valor === 'esta') estadistiques()
+  if(valor === 'esta') fetchGraphic()
 }
 
-async function eliminarPregunta(pregunta) {
+async function fetchDeleteQuestion(pregunta) {
   try {
     const res = await fetch('http://dam.inspedralbes.cat:20999/eliminar', {
       method: 'DELETE',
@@ -57,13 +58,13 @@ async function eliminarPregunta(pregunta) {
     });
     const data = await res.json();
     console.log(data.message);
-    fetchPreguntes();
+    fetchQuestions();
   } catch (err) {
     console.log("Error", err);
   }
 }
 
-async function afegir() {
+async function fetchAdd() {
   const newData = [inc1.value, inc2.value, inc3.value];
 
   const newQuestion = {
@@ -82,10 +83,10 @@ async function afegir() {
   })
   const data = await res.json();
   console.log(data.message);
-  fetchPreguntes();
+  fetchQuestions();
 }
 
-async function actualitzaPregunta() {
+async function fetchUpdateQuestion() {
   const newData = [inc1.value, inc2.value, inc3.value];
 
   const updateQuestion = {
@@ -96,7 +97,7 @@ async function actualitzaPregunta() {
     imatge: url.value
   }
 
-  const res = await fetch(`http://dam.inspedralbes.cat:20999/actualizar`, {
+  const res = await fetch(`http://dam.inspedralbes.cat:20999/actualitzar`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -105,22 +106,26 @@ async function actualitzaPregunta() {
   })
   const data = await res.json();
   console.log(data.message);
-  opcions('edit',updateQuestion)
-  fetchPreguntes();
+  options('edit',updateQuestion)
+  fetchQuestions();
 }
 
-async function estadistiques() {
+async function fetchGraphic() {
   try {
-    const res = await fetch('http://dam.inspedralbes.cat:20999/estadistica')
-    const data =  await res.json();
-    esta.value = data;
+    const res = await fetch('http://dam.inspedralbes.cat:20999/grafiques');
+    if (res.ok) {
+      const data = await res.json();
+      imageUrls.value = data.images; // Almacena las URLs de las imágenes
+    } else {
+      console.error('Error al obtener los gráficos');
+    }
   } catch (err) {
-    console.log("Error", err)
+    console.error('Error de red:', err);
   }
 }
 
 onMounted(() => {
-  fetchPreguntes();
+  fetchQuestions();
 })
 </script>
 
@@ -130,12 +135,12 @@ onMounted(() => {
   </header>
   <br>
   <div>
-    <button @click="opcions('afegir')">Nova pregunta</button>
-    <button @click="opcions('llista')">Llista de preguntes</button>
-    <!-- <button @click="opcions('esta')">Estadistiques</button> -->
+    <button @click="options('afegir')">Nova pregunta</button>
+    <button @click="options('llista')">Llista de preguntes</button>
+    <button @click="options('esta')">Estadistiques</button>
   </div>
   <br>
-  <div class="preguntes" v-for="index in newObj" :key="index" v-if="preg === 'llista'">
+  <div id="preguntes" v-for="index in newObj" :key="index" v-if="preg === 'llista'">
     <h2>{{ index.pregunta }}</h2>
     <br>
     <img :src="index.imatge" alt="Imatge">
@@ -149,14 +154,16 @@ onMounted(() => {
     </ul>
     <br>
     <div class="botones">
-      <button @click="eliminarPregunta(index)">Eliminar</button>
-      <button @click="opcions('edit', index)">Editar</button>
+      <button @click="fetchDeleteQuestion(index)">Eliminar</button>
+      <button @click="options('edit', index)">Editar</button>
     </div>
     <br><br>
   </div>
   <div id="novesPreguntes" v-if="preg === 'afegir'">
     <h1>Nova pregunta</h1>
     <input v-model="pregunta" placeholder="Pregunta">
+    <br>
+    <input v-model="url" placeholder="URL">
     <br>
     <input v-model="resposta_correcta" placeholder="Resposta correcta">
     <br>
@@ -166,9 +173,7 @@ onMounted(() => {
     <br>
     <input v-model="inc3" placeholder="Resposta incorrecta">
     <br>
-    <input v-model="url" placeholder="URL">
-    <br>
-    <button @click="afegir()">Afegir</button>
+    <button @click="fetchAdd()">Afegir</button>
   </div>
   <div v-if="preg === 'edit'">
     <br>
@@ -176,11 +181,11 @@ onMounted(() => {
     <p>Pregunta: </p>
     <textarea v-model="pregunta" rows="2" cols="50" :placeholder="pregunta"></textarea>
     <br>
-    <p>Resposta correcta: </p>
-    <input v-model="resposta_correcta" :placeholder="resposta_correcta">
-    <br>
     <p>URL:</p>
     <input v-model="url" :placeholder="url">
+    <br>
+    <p>Resposta correcta: </p>
+    <input v-model="resposta_correcta" :placeholder="resposta_correcta">
     <br>
     <p>Respostes incorrectes: </p>
     <ul>
@@ -189,101 +194,109 @@ onMounted(() => {
       <li><input v-model="inc3" :placeholder="inc3"></li>
     </ul>
     <br>
-    <button @click="actualitzaPregunta()">Actualizar</button>
+    <button @click="fetchUpdateQuestion()">Actualizar</button>
   </div>
   <div v-if="preg === 'esta'">
-    <h1>Estadistiques</h1>
-    <br>
+    <h1>Gráficos</h1>
+    <div v-for="(url, index) in imageUrls" :key="index" id="grafiques">
+      <img :src="url" :alt="'Grafico' + index" />
+    </div>
   </div>
 </template>
 
 <style scoped>
   body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
   }
 
   header {
     text-align: center;
-    background-color: #007bff;
-    padding: 20px;
-    border-radius: 5px;
-  }
-
-  .preguntes {
-    border: 2px solid #007bff;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px;
-  }
-
-  img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-top: 10px;
-  }
-
-  button {
-    background-color: #007bff;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-    color: #ffffff;
-  }
-
-  .botones {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-  }
-
-  input, textarea {
-    width: 100%;
+    background-color: #4caf50;
+    color: white;
     padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-
-  #novesPreguntes {
-    background-color: #e9ecef;
-    border: 2px solid #007bff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   h1 {
-    color: black;
+    margin: 0;
   }
 
-  input textarea {
-    margin-bottom: 15px;
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  div {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  input {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  textarea {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
   }
 
   ul {
     list-style-type: none;
-    padding-left: 0;
+    padding: 0;
   }
 
   ul li {
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    margin: 5px 0;
+    font-size: 16px;
   }
 
-  .preguntes button {
-    width: 45%;
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  #preguntes img {
+    width: 300px;
+  }
+
+  #novesPreguntes,
+  #grafiques {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  .botones {
+    display: flex;
+    justify-content: center;
+  }
+
+  .botones button {
+    margin: 5px;
+  }
+
+  #grafiques img {
+    margin: 10px 0;
   }
 </style>
