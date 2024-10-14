@@ -10,7 +10,7 @@
         },
         {
           "resposta": "Límite de velocidad",
-          "contador": 1
+          "contador": 0
         },
         {
           "resposta": "Fin de restricción",
@@ -18,7 +18,7 @@
         },
         {
           "resposta": "Obligación de detenerse",
-          "contador": 0
+          "contador": 1
         }
       ]
     },
@@ -28,7 +28,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Azul",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Blanco con borde rojo",
@@ -36,7 +36,7 @@
         },
         {
           "resposta": "Amarillo",
-          "contador": 1
+          "contador": 0
         },
         {
           "resposta": "Verde",
@@ -58,11 +58,11 @@
         },
         {
           "resposta": "En autopistas",
-          "contador": 1
+          "contador": 0
         },
         {
           "resposta": "En zonas urbanas",
-          "contador": 0
+          "contador": 1
         }
       ]
     },
@@ -94,7 +94,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Luz de carretera",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Luz de cruce",
@@ -106,7 +106,7 @@
         },
         {
           "resposta": "Luz de posición",
-          "contador": 1
+          "contador": 0
         }
       ]
     },
@@ -116,7 +116,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Es una zona de estacionamiento",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Prohibido adelantar o cambiar de carril",
@@ -128,7 +128,7 @@
         },
         {
           "resposta": "Indica la mitad de la carretera",
-          "contador": 1
+          "contador": 0
         }
       ]
     },
@@ -142,7 +142,7 @@
         },
         {
           "resposta": "La que permita detener el vehículo sin colisionar",
-          "contador": 1
+          "contador": 0
         },
         {
           "resposta": "100 metros",
@@ -150,7 +150,7 @@
         },
         {
           "resposta": "Depende de la velocidad máxima permitida",
-          "contador": 0
+          "contador": 1
         }
       ]
     },
@@ -186,7 +186,7 @@
         },
         {
           "resposta": "Detenerse completamente",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Acelerar",
@@ -194,7 +194,7 @@
         },
         {
           "resposta": "Girar a la derecha",
-          "contador": 1
+          "contador": 0
         }
       ]
     }

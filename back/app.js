@@ -8,12 +8,11 @@ const { spawn } = require('child_process');
 const port = 20999;
 
 app.use(cors());
-app.use(express.json())
-// Ruta para servir los archivos estáticos de la carpeta 'Grafiques'
+app.use(express.json());
 app.use('/grafiques', express.static(path.join(__dirname, 'Grafiques')));
 
 let allQuestions;
-let mySessions = []
+let mySessions = [];
 
 app.get('/', (req, res) => {
   fs.readFile('preguntes.json', 'utf8', (err, data) => {
@@ -257,92 +256,41 @@ app.put('/actualitzar', (req, res) => {
       console.log('Pregunta no encontrada')
     }
   });
-
-  // const pathJson = path.join(__dirname, "Jocs", "Respostes_usuarisBase.json");
-
-  // fs.readFile(pathJson, 'utf8', (err, data) => {
-  //   if (err) {
-  //     return res.status(500).json({ message: 'Error al leer el archivo JSON2' });
-  //   }
-
-  //   const allQuestions = JSON.parse(data);
-
-  //   // Encontrar el índice de la pregunta a actualizar
-  //   const index = allQuestions.preguntes.findIndex(p => p.pregunta.trim() === updatedQuestionData.pregunta_original.trim());
-
-  //   if (index !== -1) {
-  //     // Crear la nueva estructura de pregunta
-  //     const newUpdatedQuestionData = {
-  //       pregunta: updatedQuestionData.pregunta,
-  //       resposta_correcta: updatedQuestionData.resposta_correcta,
-  //       resposta_usuaris: updatedQuestionData.resposta_usuaris, // Esto incluye la estructura correcta de respuestas de los usuarios
-  //       imatge: updatedQuestionData.imatge || ""  // Campo para imagen (opcional)
-  //     };
-
-  //     // Reemplazar la pregunta en el índice encontrado
-  //     allQuestions.preguntes[index] = newUpdatedQuestionData;
-
-  //     // Convertir el objeto actualizado a JSON
-  //     const jsonString = JSON.stringify(allQuestions, null, 2);
-
-  //     // Escribir el archivo actualizado
-  //     fs.writeFile(pathJson, jsonString, (writeErr) => {
-  //       if (writeErr) {
-  //         console.error("Error al escribir el archivo:", writeErr);
-  //         return res.status(500).json({ message: 'Error al escribir el archivo JSON' });
-  //       } else {
-  //         res.json({ message: "Pregunta actualizada exitosamente." });
-  //       }
-  //     });
-  //   } else {
-  //     // Si no se encuentra la pregunta, enviar un mensaje de error
-  //     res.status(404).json({ message: 'Pregunta no encontrada' });
-  //   }
-  // });
-})
+});
 
 app.get('/grafiques', (req, res) => {
-  const pathDirGraphic = path.join(__dirname, 'Grafiques');  // Asegurar que la ruta sea correcta
+  const pathDirGraphic = path.join(__dirname, 'Grafiques');
 
-  // Obtener la fecha actual en formato día-mes-año
-  const fechaActual = new Date().toLocaleDateString('es-ES').replace(/\//g, '-'); // Formato 'dd-mm-aaaa'
+  const fechaActual = new Date().toLocaleDateString('es-ES').replace(/\//g, '-');
 
-  // Ejecutar el script de Python que genera las gráficas
   const pythonProcess = spawn('py', ['generate_graph.py', fechaActual]);
 
-  // Capturar errores del proceso Python
   pythonProcess.stderr.on('data', (data) => {
     console.error(`Error del script de Python: ${data.toString()}`);
   });
 
-  // Capturar la salida del proceso Python (si es necesario)
   pythonProcess.stdout.on('data', (data) => {
     console.log(`Salida del script: ${data.toString()}`);
   });
 
-  // Cuando el script de Python termina de ejecutarse
   pythonProcess.on('close', (code) => {
     if (code !== 0) {
       return res.status(500).send(`El proceso Python finalizó con el código ${code}`);
     }
 
-    // Leer todas las imágenes generadas en el directorio 'Grafiques'
     fs.readdir(pathDirGraphic, (err, files) => {
       if (err) {
         return res.status(500).json({ message: 'Error al leer el directorio de gráficos' });
       }
 
-      // Filtrar solo los archivos que coinciden con la fecha actual y que son imágenes (ej. PNG)
       const imageFiles = files.filter(file => file.startsWith(fechaActual) && file.endsWith('.png'));
 
       if (imageFiles.length === 0) {
         return res.status(404).json({ message: 'No se encontraron gráficos' });
       }
 
-      // Generar las URLs de todas las imágenes
       const imageUrls = imageFiles.map(file => `http://localhost:20999/grafiques/${file}`);
 
-      // Enviar la lista de URLs de las imágenes generadas
       res.json({ images: imageUrls });
     });
   });

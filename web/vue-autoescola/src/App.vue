@@ -2,17 +2,17 @@
 import { ref, onMounted } from 'vue';
 
 const newObj = ref([])
-const preg = ref('start')
+const state = ref('llista')
 
-const pregunta = ref('')
-const resposta_correcta = ref('')
+const question = ref('')
+const correct_answer = ref('')
 const url = ref('')
 const inc1 = ref('')
 const inc2 = ref('')
 const inc3 = ref('')
 
-const preguntaOriginal = ref('')
-const messageUpdate = ref('')
+const questionOriginal = ref('')
+const message = ref('')
 
 const imageUrls = ref([]);
 
@@ -27,25 +27,28 @@ async function fetchQuestions() {
 }
 
 function options(valor, index) {
-  preg.value = valor;
+  state.value = valor;
 
-  pregunta.value = ""
-  resposta_correcta.value = ""
+  question.value = ""
+  correct_answer.value = ""
   inc1.value = ""
   inc2.value = ""
   inc3.value = ""
+  url.value = ""
 
-  if(valor === 'edit') {
-    preguntaOriginal.value = index.pregunta
-    pregunta.value = index.pregunta
+  if(valor === 'editar') {
+    questionOriginal.value = index.pregunta
+    question.value = index.pregunta
     url.value = index.imatge
-    resposta_correcta.value = index.resposta_correcta
+    correct_answer.value = index.resposta_correcta
     inc1.value = index.respostes_incorrectes[0]
     inc2.value = index.respostes_incorrectes[1]
     inc3.value = index.respostes_incorrectes[2]
   }
 
-  if(valor === 'esta') fetchGraphic()
+  if(valor === 'llista' || valor === 'grafic' || valor === 'afegir') message.value = ''
+
+  if(valor === 'grafic') fetchGraphic()
 }
 
 async function fetchDeleteQuestion(pregunta) {
@@ -69,8 +72,8 @@ async function fetchAdd() {
   const newData = [inc1.value, inc2.value, inc3.value];
 
   const newQuestion = {
-    pregunta: pregunta.value,
-    resposta_correcta: resposta_correcta.value,
+    pregunta: question.value,
+    resposta_correcta: correct_answer.value,
     respostes_incorrectes: newData,
     imatge: url.value
   }
@@ -84,6 +87,7 @@ async function fetchAdd() {
   })
   const data = await res.json();
   console.log(data.message);
+  message.value = "missatge";
   fetchQuestions();
 }
 
@@ -91,9 +95,9 @@ async function fetchUpdateQuestion() {
   const newData = [inc1.value, inc2.value, inc3.value];
 
   const updateQuestion = {
-    pregunta_original: preguntaOriginal.value,
-    pregunta: pregunta.value,
-    resposta_correcta: resposta_correcta.value,
+    pregunta_original: questionOriginal.value,
+    pregunta: question.value,
+    resposta_correcta: correct_answer.value,
     respostes_incorrectes: newData,
     imatge: url.value
   }
@@ -107,8 +111,8 @@ async function fetchUpdateQuestion() {
   })
   const data = await res.json();
   console.log(data.message);
-  messageUpdate.value = "missatge";
-  options('edit',updateQuestion);
+  message.value = "missatge";
+  options('editar',updateQuestion);
   fetchQuestions();
 }
 
@@ -117,7 +121,7 @@ async function fetchGraphic() {
     const res = await fetch('http://localhost:20999/grafiques');
     if (res.ok) {
       const data = await res.json();
-      imageUrls.value = data.images; // Almacena las URLs de las imágenes
+      imageUrls.value = data.images;
     } else {
       console.error('Error al obtener los gráficos');
     }
@@ -136,13 +140,13 @@ onMounted(() => {
     <h1>Menu de preguntes</h1>
   </header>
   <br>
-  <div>
+  <div class="botons">
     <button @click="options('afegir')">Nova pregunta</button>
     <button @click="options('llista')">Llista de preguntes</button>
-    <button @click="options('esta')">Estadistiques</button>
+    <button @click="options('grafic')">Gràfiques</button>
   </div>
   <br>
-  <div id="preguntes" v-for="index in newObj" :key="index" v-if="preg === 'llista'">
+  <div id="preguntes" v-for="index in newObj" :key="index" v-if="state === 'llista'">
     <h2>{{ index.pregunta }}</h2>
     <br>
     <img :src="index.imatge" alt="Imatge">
@@ -155,19 +159,20 @@ onMounted(() => {
       </li>
     </ul>
     <br>
-    <div class="botones">
+    <div class="botons">
       <button @click="fetchDeleteQuestion(index)">Eliminar</button>
-      <button @click="options('edit', index)">Editar</button>
+      <button @click="options('editar', index)">Editar</button>
     </div>
     <br><br>
   </div>
-  <div id="novesPreguntes" v-if="preg === 'afegir'">
+  <div id="novesPreguntes" v-if="state === 'afegir'">
     <h1>Nova pregunta</h1>
-    <input v-model="pregunta" placeholder="Pregunta">
+    <p v-if="message === 'missatge'" class="message">Nova pregunta guardada</p>
+    <input v-model="question" placeholder="Pregunta">
     <br>
     <input v-model="url" placeholder="URL">
     <br>
-    <input v-model="resposta_correcta" placeholder="Resposta correcta">
+    <input v-model="correct_answer" placeholder="Resposta correcta">
     <br>
     <input v-model="inc1" placeholder="Resposta incorrecta">
     <br>
@@ -177,18 +182,18 @@ onMounted(() => {
     <br>
     <button @click="fetchAdd()">Afegir</button>
   </div>
-  <div v-if="preg === 'edit'">
+  <div v-if="state === 'editar'">
     <br>
     <h1>Editar</h1>
-    <p v-if="messageUpdate === 'missatge'" id="messageUpdate">Actualitzat</p>
+    <p v-if="message === 'missatge'" class="message">Actualitzat</p>
     <p>Pregunta: </p>
-    <textarea v-model="pregunta" rows="2" cols="50" :placeholder="pregunta"></textarea>
+    <textarea v-model="question" rows="2" cols="50" :placeholder="question"></textarea>
     <br>
     <p>URL:</p>
     <input v-model="url" :placeholder="url">
     <br>
     <p>Resposta correcta: </p>
-    <input v-model="resposta_correcta" :placeholder="resposta_correcta">
+    <input v-model="correct_answer" :placeholder="correct_answer">
     <br>
     <p>Respostes incorrectes: </p>
     <ul>
@@ -199,17 +204,17 @@ onMounted(() => {
     <br>
     <button @click="fetchUpdateQuestion()">Actualizar</button>
   </div>
-  <div v-if="preg === 'esta'">
-    <h1>Gráficos</h1>
+  <div v-if="state === 'grafic'">
+    <h1>Gràfiques</h1>
     <div v-for="(url, index) in imageUrls" :key="index" id="grafiques">
-      <img :src="url" :alt="'Grafico' + index" />
+      <img :src="url" :alt="'Gràfica' + index" />
     </div>
   </div>
 </template>
 
 <style scoped>
   body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background-color: #f4f4f9;
     margin: 0;
     padding: 20px;
@@ -290,12 +295,12 @@ onMounted(() => {
     max-width: 600px;
   }
 
-  .botones {
+  .botons {
     display: flex;
     justify-content: center;
   }
 
-  .botones button {
+  .botons button {
     margin: 5px;
   }
 
@@ -303,7 +308,7 @@ onMounted(() => {
     margin: 10px 0;
   }
 
-  #messageUpdate {
+  .message {
     color: green;
   }
 </style>
