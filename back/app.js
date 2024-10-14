@@ -289,7 +289,7 @@ app.get('/grafiques', (req, res) => {
         return res.status(404).json({ message: 'No se encontraron gráficos' });
       }
 
-      const imageUrls = imageFiles.map(file => `http://localhost:20999/grafiques/${file}`);
+      const imageUrls = imageFiles.map(file => `http://dam.inspedralbes.cat:20999/grafiques/${file}`);
 
       res.json({ images: imageUrls });
     });
