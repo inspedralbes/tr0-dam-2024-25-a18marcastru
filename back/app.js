@@ -260,28 +260,20 @@ app.put('/actualitzar', (req, res) => {
 
 app.get('/grafiques', (req, res) => {
   const pathDirGraphic = path.join(__dirname, 'Grafiques');
-
   const fechaActual = new Date().toLocaleDateString('es-ES').replace(/\//g, '-');
-
   const jsonDir = path.join(__dirname, 'Jocs', fechaActual);
 
   if (!fs.existsSync(jsonDir)) {
-    console.log(`La carpeta ${jsonDir} no existe. Se buscarán gráficos en la carpeta Grafiques.`);
-
+    console.log(`La carpeta ${jsonDir} no existeix. Es buscaran gràfics en la carpeta Grafiques.`);
+    
     fs.readdir(pathDirGraphic, (err, files) => {
       if (err) {
-        return res.status(500).json({ message: 'Error al leer el directorio de gráficos' });
+        return res.status(500).json({ message: 'Error en llegir el directori de Grafiques' });
       }
 
-      if (imageFiles.length === 0) {
-        return res.status(404).json({ message: 'No se encontraron gráficos disponibles.' });
-      }
-
-      const imageUrls = imageFiles.map(file => `http://localhost:20999/grafiques/${file}`);
-
+      const imageUrls = files.map(file => `http://localhost:20999/grafiques/${file}`);
       return res.json({ images: imageUrls });
     });
-
   } else {
     const pythonProcess = spawn('py', ['generate_graph.py', fechaActual]);
 
@@ -303,18 +295,7 @@ app.get('/grafiques', (req, res) => {
           return res.status(500).json({ message: 'Error al leer el directorio de gráficos' });
         }
 
-        let imageFiles = files.filter(file => file);
-
-        if (imageFiles.length === 0) {
-          imageFiles = files.filter(file => file.endsWith('.png'));
-        }
-
-        if (imageFiles.length === 0) {
-          return res.status(404).json({ message: 'No se encontraron gráficos generados.' });
-        }
-
-        const imageUrls = imageFiles.map(file => `http://localhost:20999/grafiques/${file}`);
-
+        const imageUrls = files.map(file => `http://localhost:20999/grafiques/${file}`);
         res.json({ images: imageUrls });
       });
     });
