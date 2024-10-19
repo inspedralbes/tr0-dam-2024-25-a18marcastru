@@ -263,37 +263,62 @@ app.get('/grafiques', (req, res) => {
 
   const fechaActual = new Date().toLocaleDateString('es-ES').replace(/\//g, '-');
 
-  const pythonProcess = spawn('py', ['generate_graph.py', fechaActual]);
+  const jsonDir = path.join(__dirname, 'Jocs', fechaActual);
 
-  pythonProcess.stderr.on('data', (data) => {
-    console.error(`Error del script de Python: ${data.toString()}`);
-  });
-
-  pythonProcess.stdout.on('data', (data) => {
-    console.log(`Salida del script: ${data.toString()}`);
-  });
-
-  pythonProcess.on('close', (code) => {
-    if (code !== 0) {
-      return res.status(500).send(`El proceso Python finalizó con el código ${code}`);
-    }
+  if (!fs.existsSync(jsonDir)) {
+    console.log(`La carpeta ${jsonDir} no existe. Se buscarán gráficos en la carpeta Grafiques.`);
 
     fs.readdir(pathDirGraphic, (err, files) => {
       if (err) {
         return res.status(500).json({ message: 'Error al leer el directorio de gráficos' });
       }
 
-      const imageFiles = files.filter(file => file.startsWith(fechaActual) && file.endsWith('.png'));
-
       if (imageFiles.length === 0) {
-        return res.status(404).json({ message: 'No se encontraron gráficos' });
+        return res.status(404).json({ message: 'No se encontraron gráficos disponibles.' });
       }
 
       const imageUrls = imageFiles.map(file => `http://dam.inspedralbes.cat:20999/grafiques/${file}`);
 
-      res.json({ images: imageUrls });
+      return res.json({ images: imageUrls });
     });
-  });
+
+  } else {
+    const pythonProcess = spawn('py', ['generate_graph.py', fechaActual]);
+
+    pythonProcess.stderr.on('data', (data) => {
+      console.error(`Error del script de Python: ${data.toString()}`);
+    });
+
+    pythonProcess.stdout.on('data', (data) => {
+      console.log(`Salida del script: ${data.toString()}`);
+    });
+
+    pythonProcess.on('close', (code) => {
+      if (code !== 0) {
+        return res.status(500).send(`El proceso Python finalizó con el código ${code}`);
+      }
+
+      fs.readdir(pathDirGraphic, (err, files) => {
+        if (err) {
+          return res.status(500).json({ message: 'Error al leer el directorio de gráficos' });
+        }
+
+        let imageFiles = files.filter(file => file);
+
+        if (imageFiles.length === 0) {
+          imageFiles = files.filter(file => file.endsWith('.png'));
+        }
+
+        if (imageFiles.length === 0) {
+          return res.status(404).json({ message: 'No se encontraron gráficos generados.' });
+        }
+
+        const imageUrls = imageFiles.map(file => `http://dam.inspedralbes.cat:20999/grafiques/${file}`);
+
+        res.json({ images: imageUrls });
+      });
+    });
+  }
 });
 
 app.listen(port, () => {

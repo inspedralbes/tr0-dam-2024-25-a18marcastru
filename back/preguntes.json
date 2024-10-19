@@ -1,7 +1,7 @@
 {
   "preguntes": [
     {
-      "pregunta": "¿Cuál es la velocidad máxima permitida en autopistas para turismos en España?",
+      "pregunta": "Quina és la velocitat màxima permesa a les autopistes per a turismes a Espanya?",
       "resposta_correcta": "120 km/h",
       "respostes_incorrectes": [
         "100 km/h",
@@ -11,92 +11,92 @@
       "imatge": "https://www.safetysignsireland.ie/image/cache/catalog/Chapter%208%20Road%20Works%20Signs/120%20kmh%20Sign-228x228.jpg"
     },
     {
-      "pregunta": "¿Qué significa una señal de tráfico con un círculo rojo y un número dentro?",
-      "resposta_correcta": "Límite de velocidad",
+      "pregunta": "Què significa un senyal de trànsit amb un cercle vermell i un número dins?",
+      "resposta_correcta": "Límit de velocitat",
       "respostes_incorrectes": [
-        "Prohibición de adelantamiento",
-        "Fin de restricción",
-        "Obligación de detenerse"
+        "Prohibició d'avançament",
+        "Fi de restricció",
+        "Obligació de detenir-se"
       ],
       "imatge": "https://st.depositphotos.com/1006706/3197/i/950/depositphotos_31972837-stock-photo-10-speed-limit-sign.jpg"
     },
     {
-      "pregunta": "¿Qué color tiene la señal de ceda el paso?",
-      "resposta_correcta": "Blanco con borde rojo",
+      "pregunta": "Quin color té el senyal de ceda el pas?",
+      "resposta_correcta": "Blanc amb bord vermell",
       "respostes_incorrectes": [
-        "Azul",
-        "Amarillo",
-        "Verde"
+        "Blau",
+        "Groc",
+        "Verd"
       ],
       "imatge": "https://images0.autocasion.com/unsafe/1200x800/actualidad/wp-content/uploads/2021/09/ceda-el-paso.jpg"
     },
     {
-      "pregunta": "¿En qué situaciones está permitido adelantar por la derecha?",
-      "resposta_correcta": "En vías con más de un carril por sentido y tráfico denso",
+      "pregunta": "En quines situacions està permès avançar per la dreta?",
+      "resposta_correcta": "En vies amb més d'un carril per sentit i trànsit dens",
       "respostes_incorrectes": [
-        "Nunca",
-        "En autopistas",
-        "En zonas urbanas"
+        "Mai",
+        "A les autopistes",
+        "A les zones urbanes"
       ],
       "imatge": "http://www.todotest.com/tests/imgs/g0391.jpg"
     },
     {
-      "pregunta": "¿Cómo se debe estacionar en una pendiente descendente?",
-      "resposta_correcta": "Girar las ruedas hacia la acera y poner el freno de mano",
+      "pregunta": "Com s'ha de estacionar en una pendent descendent?",
+      "resposta_correcta": "Girar les rodes cap a la vorera i posar el fre de mà",
       "respostes_incorrectes": [
-        "Dejar el coche en punto muerto",
-        "Girar las ruedas hacia la calzada",
-        "Apagar el motor y dejar las ruedas rectas"
+        "Deixar el cotxe en punt mort",
+        "Girar les rodes cap a la calçada",
+        "Apagar el motor i deixar les rodes rectes"
       ],
       "imatge": "https://carrosenusa.com/wp-content/uploads/estacionar-carro-en-una-pendiente-scaled.jpg"
     },
     {
-      "pregunta": "¿Qué luz es obligatoria usar al circular en un túnel?",
-      "resposta_correcta": "Luz de cruce",
+      "pregunta": "Quina llum és obligatòria utilitzar al circular en un túnel?",
+      "resposta_correcta": "Llum de creuament",
       "respostes_incorrectes": [
-        "Luz de carretera",
-        "Luz antiniebla",
-        "Luz de posición"
+        "Llum de carretera",
+        "Llum antiboira",
+        "Llum de posició"
       ],
       "imatge": "https://lasmotos.net/wp-content/uploads/2022/09/luci-anabbaglianti-cosa-sono-utilizzo.jpg"
     },
     {
-      "pregunta": "¿Qué significa una línea continua en la calzada?",
-      "resposta_correcta": "Prohibido adelantar o cambiar de carril",
+      "pregunta": "Què significa una línia contínua a la calçada?",
+      "resposta_correcta": "Prohibit avançar o canviar de carril",
       "respostes_incorrectes": [
-        "Es una zona de estacionamiento",
-        "Permite adelantar",
-        "Indica la mitad de la carretera"
+        "És una zona d'estacionament",
+        "Permet avançar",
+        "Indica la meitat de la carretera"
       ],
       "imatge": "https://images.prismic.io/obikares/b3377c39-07a3-43cd-8a9a-2366ccc9d3bd_shutterstock_1160744002.jpg?"
     },
     {
-      "pregunta": "¿Qué distancia de seguridad se debe mantener con el vehículo de delante?",
-      "resposta_correcta": "La que permita detener el vehículo sin colisionar",
+      "pregunta": "Quina distància de seguretat s'ha de mantenir amb el vehicle de davant?",
+      "resposta_correcta": "La que permeti detenir el vehicle sense col·lisionar",
       "respostes_incorrectes": [
-        "10 metros",
-        "100 metros",
-        "Depende de la velocidad máxima permitida"
+        "10 metres",
+        "100 metres",
+        "Depèn de la velocitat màxima permesa"
       ],
       "imatge": "https://distribuidoraeme.com/wp-content/uploads/distancia-segura-2-1024x576.jpg"
     },
     {
-      "pregunta": "¿Qué documento es obligatorio llevar en el vehículo?",
-      "resposta_correcta": "Permiso de circulación",
+      "pregunta": "Quin document és obligatori portar al vehicle?",
+      "resposta_correcta": "Permís de circulació",
       "respostes_incorrectes": [
         "Carnet de la ITV",
-        "Certificado médico",
-        "Recibo del seguro"
+        "Certificat mèdic",
+        "Rebut de l'assegurança"
       ],
       "imatge": "https://s2.ppllstatics.com/ideal/www/multimedia/202212/05/media/cortadas/multa-trafico-kQKG-U180881774056UUB-1248x770@Ideal.jpeg"
     },
     {
-      "pregunta": "¿Qué debe hacer si ve una señal de STOP?",
-      "resposta_correcta": "Detenerse completamente",
+      "pregunta": "Què ha de fer si veu un senyal de STOP?",
+      "resposta_correcta": "Detenir-se completament",
       "respostes_incorrectes": [
-        "Reducir la velocidad",
-        "Acelerar",
-        "Girar a la derecha"
+        "Reducir la velocitat",
+        "Accelerar",
+        "Girar a la dreta"
       ],
       "imatge": "http://pngimg.com/uploads/sign_stop/sign_stop_PNG25628.png"
     }

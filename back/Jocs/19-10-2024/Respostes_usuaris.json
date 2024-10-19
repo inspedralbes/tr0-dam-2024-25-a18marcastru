@@ -6,19 +6,19 @@
       "resposta_usuaris": [
         {
           "resposta": "100 km/h",
-          "contador": 0
+          "contador": 2
         },
         {
           "resposta": "130 km/h",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "90 km/h",
-          "contador": 0
+          "contador": 2
         },
         {
           "resposta": "120 km/h",
-          "contador": 0
+          "contador": 2
         }
       ]
     },
@@ -28,19 +28,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Prohibició d'avançament",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Límit de velocitat",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Fi de restricció",
-          "contador": 0
+          "contador": 4
         },
         {
           "resposta": "Obligació de detenir-se",
-          "contador": 0
+          "contador": 1
         }
       ]
     },
@@ -50,19 +50,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Blau",
-          "contador": 0
+          "contador": 3
         },
         {
           "resposta": "Blanc amb bord vermell",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Groc",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Verd",
-          "contador": 0
+          "contador": 2
         }
       ]
     },
@@ -72,19 +72,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Mai",
-          "contador": 0
+          "contador": 2
         },
         {
           "resposta": "En vies amb més d'un carril per sentit i trànsit dens",
-          "contador": 0
+          "contador": 2
         },
         {
           "resposta": "A les autopistes",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "A les zones urbanes",
-          "contador": 0
+          "contador": 2
         }
       ]
     },
@@ -94,7 +94,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Deixar el cotxe en punt mort",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Girar les rodes cap a la vorera i posar el fre de mà",
@@ -102,11 +102,11 @@
         },
         {
           "resposta": "Girar les rodes cap a la calçada",
-          "contador": 0
+          "contador": 4
         },
         {
           "resposta": "Apagar el motor i deixar les rodes rectes",
-          "contador": 0
+          "contador": 2
         }
       ]
     },
@@ -116,19 +116,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Llum de carretera",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Llum de creuament",
-          "contador": 0
+          "contador": 2
         },
         {
           "resposta": "Llum antiboira",
-          "contador": 0
+          "contador": 3
         },
         {
           "resposta": "Llum de posició",
-          "contador": 0
+          "contador": 1
         }
       ]
     },
@@ -138,7 +138,7 @@
       "resposta_usuaris": [
         {
           "resposta": "És una zona d'estacionament",
-          "contador": 0
+          "contador": 5
         },
         {
           "resposta": "Prohibit avançar o canviar de carril",
@@ -146,11 +146,11 @@
         },
         {
           "resposta": "Permet avançar",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Indica la meitat de la carretera",
-          "contador": 0
+          "contador": 1
         }
       ]
     },
@@ -164,15 +164,15 @@
         },
         {
           "resposta": "La que permeti detenir el vehicle sense col·lisionar",
-          "contador": 0
+          "contador": 3
         },
         {
           "resposta": "100 metres",
-          "contador": 0
+          "contador": 2
         },
         {
           "resposta": "Depèn de la velocitat màxima permesa",
-          "contador": 0
+          "contador": 2
         }
       ]
     },
@@ -182,19 +182,19 @@
       "resposta_usuaris": [
         {
           "resposta": "Carnet de la ITV",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Permís de circulació",
-          "contador": 0
+          "contador": 2
         },
         {
           "resposta": "Certificat mèdic",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Rebut de l'assegurança",
-          "contador": 0
+          "contador": 3
         }
       ]
     },
@@ -208,15 +208,15 @@
         },
         {
           "resposta": "Detenir-se completament",
-          "contador": 0
+          "contador": 1
         },
         {
           "resposta": "Accelerar",
-          "contador": 0
+          "contador": 2
         },
         {
           "resposta": "Girar a la dreta",
-          "contador": 0
+          "contador": 4
         }
       ]
     }
