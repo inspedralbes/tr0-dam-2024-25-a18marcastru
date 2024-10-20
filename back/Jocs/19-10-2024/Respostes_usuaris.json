@@ -10,7 +10,7 @@
         },
         {
           "resposta": "130 km/h",
-          "contador": 1
+          "contador": 2
         },
         {
           "resposta": "90 km/h",
@@ -28,7 +28,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Prohibició d'avançament",
-          "contador": 1
+          "contador": 2
         },
         {
           "resposta": "Límit de velocitat",
@@ -50,7 +50,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Blau",
-          "contador": 3
+          "contador": 4
         },
         {
           "resposta": "Blanc amb bord vermell",
@@ -72,7 +72,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Mai",
-          "contador": 2
+          "contador": 3
         },
         {
           "resposta": "En vies amb més d'un carril per sentit i trànsit dens",
@@ -94,7 +94,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Deixar el cotxe en punt mort",
-          "contador": 1
+          "contador": 2
         },
         {
           "resposta": "Girar les rodes cap a la vorera i posar el fre de mà",
@@ -124,7 +124,7 @@
         },
         {
           "resposta": "Llum antiboira",
-          "contador": 3
+          "contador": 4
         },
         {
           "resposta": "Llum de posició",
@@ -138,7 +138,7 @@
       "resposta_usuaris": [
         {
           "resposta": "És una zona d'estacionament",
-          "contador": 5
+          "contador": 6
         },
         {
           "resposta": "Prohibit avançar o canviar de carril",
@@ -164,7 +164,7 @@
         },
         {
           "resposta": "La que permeti detenir el vehicle sense col·lisionar",
-          "contador": 3
+          "contador": 4
         },
         {
           "resposta": "100 metres",
@@ -182,7 +182,7 @@
       "resposta_usuaris": [
         {
           "resposta": "Carnet de la ITV",
-          "contador": 1
+          "contador": 2
         },
         {
           "resposta": "Permís de circulació",
@@ -216,7 +216,7 @@
         },
         {
           "resposta": "Girar a la dreta",
-          "contador": 4
+          "contador": 5
         }
       ]
     }
