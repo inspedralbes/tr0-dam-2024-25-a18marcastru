@@ -1,0 +1,224 @@
+{
+  "preguntes": [
+    {
+      "pregunta": "Quina és la velocitat màxima permesa a les autopistes per a turismes a Espanya?",
+      "resposta_correcta": "120 km/h",
+      "resposta_usuaris": [
+        {
+          "resposta": "100 km/h",
+          "contador": 2
+        },
+        {
+          "resposta": "130 km/h",
+          "contador": 2
+        },
+        {
+          "resposta": "90 km/h",
+          "contador": 2
+        },
+        {
+          "resposta": "120 km/h",
+          "contador": 2
+        }
+      ]
+    },
+    {
+      "pregunta": "Què significa un senyal de trànsit amb un cercle vermell i un número dins?",
+      "resposta_correcta": "Límit de velocitat",
+      "resposta_usuaris": [
+        {
+          "resposta": "Prohibició d'avançament",
+          "contador": 2
+        },
+        {
+          "resposta": "Límit de velocitat",
+          "contador": 1
+        },
+        {
+          "resposta": "Fi de restricció",
+          "contador": 4
+        },
+        {
+          "resposta": "Obligació de detenir-se",
+          "contador": 1
+        }
+      ]
+    },
+    {
+      "pregunta": "Quin color té el senyal de ceda el pas?",
+      "resposta_correcta": "Blanc amb bord vermell",
+      "resposta_usuaris": [
+        {
+          "resposta": "Blau",
+          "contador": 4
+        },
+        {
+          "resposta": "Blanc amb bord vermell",
+          "contador": 1
+        },
+        {
+          "resposta": "Groc",
+          "contador": 1
+        },
+        {
+          "resposta": "Verd",
+          "contador": 2
+        }
+      ]
+    },
+    {
+      "pregunta": "En quines situacions està permès avançar per la dreta?",
+      "resposta_correcta": "En vies amb més d'un carril per sentit i trànsit dens",
+      "resposta_usuaris": [
+        {
+          "resposta": "Mai",
+          "contador": 3
+        },
+        {
+          "resposta": "En vies amb més d'un carril per sentit i trànsit dens",
+          "contador": 2
+        },
+        {
+          "resposta": "A les autopistes",
+          "contador": 1
+        },
+        {
+          "resposta": "A les zones urbanes",
+          "contador": 2
+        }
+      ]
+    },
+    {
+      "pregunta": "Com s'ha de estacionar en una pendent descendent?",
+      "resposta_correcta": "Girar les rodes cap a la vorera i posar el fre de mà",
+      "resposta_usuaris": [
+        {
+          "resposta": "Deixar el cotxe en punt mort",
+          "contador": 2
+        },
+        {
+          "resposta": "Girar les rodes cap a la vorera i posar el fre de mà",
+          "contador": 0
+        },
+        {
+          "resposta": "Girar les rodes cap a la calçada",
+          "contador": 4
+        },
+        {
+          "resposta": "Apagar el motor i deixar les rodes rectes",
+          "contador": 2
+        }
+      ]
+    },
+    {
+      "pregunta": "Quina llum és obligatòria utilitzar al circular en un túnel?",
+      "resposta_correcta": "Llum de creuament",
+      "resposta_usuaris": [
+        {
+          "resposta": "Llum de carretera",
+          "contador": 1
+        },
+        {
+          "resposta": "Llum de creuament",
+          "contador": 2
+        },
+        {
+          "resposta": "Llum antiboira",
+          "contador": 4
+        },
+        {
+          "resposta": "Llum de posició",
+          "contador": 1
+        }
+      ]
+    },
+    {
+      "pregunta": "Què significa una línia contínua a la calçada?",
+      "resposta_correcta": "Prohibit avançar o canviar de carril",
+      "resposta_usuaris": [
+        {
+          "resposta": "És una zona d'estacionament",
+          "contador": 6
+        },
+        {
+          "resposta": "Prohibit avançar o canviar de carril",
+          "contador": 0
+        },
+        {
+          "resposta": "Permet avançar",
+          "contador": 1
+        },
+        {
+          "resposta": "Indica la meitat de la carretera",
+          "contador": 1
+        }
+      ]
+    },
+    {
+      "pregunta": "Quina distància de seguretat s'ha de mantenir amb el vehicle de davant?",
+      "resposta_correcta": "La que permeti detenir el vehicle sense col·lisionar",
+      "resposta_usuaris": [
+        {
+          "resposta": "10 metres",
+          "contador": 0
+        },
+        {
+          "resposta": "La que permeti detenir el vehicle sense col·lisionar",
+          "contador": 4
+        },
+        {
+          "resposta": "100 metres",
+          "contador": 2
+        },
+        {
+          "resposta": "Depèn de la velocitat màxima permesa",
+          "contador": 2
+        }
+      ]
+    },
+    {
+      "pregunta": "Quin document és obligatori portar al vehicle?",
+      "resposta_correcta": "Permís de circulació",
+      "resposta_usuaris": [
+        {
+          "resposta": "Carnet de la ITV",
+          "contador": 2
+        },
+        {
+          "resposta": "Permís de circulació",
+          "contador": 2
+        },
+        {
+          "resposta": "Certificat mèdic",
+          "contador": 1
+        },
+        {
+          "resposta": "Rebut de l'assegurança",
+          "contador": 3
+        }
+      ]
+    },
+    {
+      "pregunta": "Què ha de fer si veu un senyal de STOP?",
+      "resposta_correcta": "Detenir-se completament",
+      "resposta_usuaris": [
+        {
+          "resposta": "Reducir la velocitat",
+          "contador": 0
+        },
+        {
+          "resposta": "Detenir-se completament",
+          "contador": 1
+        },
+        {
+          "resposta": "Accelerar",
+          "contador": 2
+        },
+        {
+          "resposta": "Girar a la dreta",
+          "contador": 5
+        }
+      ]
+    }
+  ]
+}

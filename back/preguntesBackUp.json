@@ -1,0 +1,104 @@
+{
+  "preguntes": [
+    {
+      "pregunta": "Quina és la velocitat màxima permesa a les autopistes per a turismes a Espanya?",
+      "resposta_correcta": "120 km/h",
+      "respostes_incorrectes": [
+        "100 km/h",
+        "130 km/h",
+        "90 km/h"
+      ],
+      "imatge": "https://www.safetysignsireland.ie/image/cache/catalog/Chapter%208%20Road%20Works%20Signs/120%20kmh%20Sign-228x228.jpg"
+    },
+    {
+      "pregunta": "Què significa un senyal de trànsit amb un cercle vermell i un número dins?",
+      "resposta_correcta": "Límit de velocitat",
+      "respostes_incorrectes": [
+        "Prohibició d'avançament",
+        "Fi de restricció",
+        "Obligació de detenir-se"
+      ],
+      "imatge": "https://st.depositphotos.com/1006706/3197/i/950/depositphotos_31972837-stock-photo-10-speed-limit-sign.jpg"
+    },
+    {
+      "pregunta": "Quin color té el senyal de ceda el pas?",
+      "resposta_correcta": "Blanc amb bord vermell",
+      "respostes_incorrectes": [
+        "Blau",
+        "Groc",
+        "Verd"
+      ],
+      "imatge": "https://images0.autocasion.com/unsafe/1200x800/actualidad/wp-content/uploads/2021/09/ceda-el-paso.jpg"
+    },
+    {
+      "pregunta": "En quines situacions està permès avançar per la dreta?",
+      "resposta_correcta": "En vies amb més d'un carril per sentit i trànsit dens",
+      "respostes_incorrectes": [
+        "Mai",
+        "A les autopistes",
+        "A les zones urbanes"
+      ],
+      "imatge": "http://www.todotest.com/tests/imgs/g0391.jpg"
+    },
+    {
+      "pregunta": "Com s'ha de estacionar en una pendent descendent?",
+      "resposta_correcta": "Girar les rodes cap a la vorera i posar el fre de mà",
+      "respostes_incorrectes": [
+        "Deixar el cotxe en punt mort",
+        "Girar les rodes cap a la calçada",
+        "Apagar el motor i deixar les rodes rectes"
+      ],
+      "imatge": "https://carrosenusa.com/wp-content/uploads/estacionar-carro-en-una-pendiente-scaled.jpg"
+    },
+    {
+      "pregunta": "Quina llum és obligatòria utilitzar al circular en un túnel?",
+      "resposta_correcta": "Llum de creuament",
+      "respostes_incorrectes": [
+        "Llum de carretera",
+        "Llum antiboira",
+        "Llum de posició"
+      ],
+      "imatge": "https://lasmotos.net/wp-content/uploads/2022/09/luci-anabbaglianti-cosa-sono-utilizzo.jpg"
+    },
+    {
+      "pregunta": "Què significa una línia contínua a la calçada?",
+      "resposta_correcta": "Prohibit avançar o canviar de carril",
+      "respostes_incorrectes": [
+        "És una zona d'estacionament",
+        "Permet avançar",
+        "Indica la meitat de la carretera"
+      ],
+      "imatge": "https://images.prismic.io/obikares/b3377c39-07a3-43cd-8a9a-2366ccc9d3bd_shutterstock_1160744002.jpg?"
+    },
+    {
+      "pregunta": "Quina distància de seguretat s'ha de mantenir amb el vehicle de davant?",
+      "resposta_correcta": "La que permeti detenir el vehicle sense col·lisionar",
+      "respostes_incorrectes": [
+        "10 metres",
+        "100 metres",
+        "Depèn de la velocitat màxima permesa"
+      ],
+      "imatge": "https://distribuidoraeme.com/wp-content/uploads/distancia-segura-2-1024x576.jpg"
+    },
+    {
+      "pregunta": "Quin document és obligatori portar al vehicle?",
+      "resposta_correcta": "Permís de circulació",
+      "respostes_incorrectes": [
+        "Carnet de la ITV",
+        "Certificat mèdic",
+        "Rebut de l'assegurança"
+      ],
+      "imatge": "https://s2.ppllstatics.com/ideal/www/multimedia/202212/05/media/cortadas/multa-trafico-kQKG-U180881774056UUB-1248x770@Ideal.jpeg"
+    },
+    {
+      "pregunta": "Què ha de fer si veu un senyal de STOP?",
+      "resposta_correcta": "Detenir-se completament",
+      "respostes_incorrectes": [
+        "Reducir la velocitat",
+        "Accelerar",
+        "Girar a la dreta"
+      ],
+      "imatge": "http://pngimg.com/uploads/sign_stop/sign_stop_PNG25628.png"
+    }
+  ]
+}
